@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/archives.css">
+    <script src="/js/archives.js" defer></script>
+    <link rel="canonical" href="https://tslan.fr/archives" />
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <ul class="nav-links">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/jeux">Jeux</a></li>
+            <li><a href="/participation">Participation</a></li>
+            <li><a class="active" href="/archives" data-page="/archives">Archives</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="video-background">
+    <video autoplay muted loop>
+        <source src="/videos/background.webm" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+</div>
+<main id="content">
+    <h1 style="text-align: center; font-size: 4.3rem;" class="archive-main-title">Archives TSLAN</h1>
+
+    <div class="accordion">
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span>TSLAN 2k25</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="video-section">
+                        <div class="video-container-archive">
+                            <iframe id="video-player-2k25" src="https://www.youtube.com/embed/LrWvUYRvPP8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-selector">
+                            <button class="selector-btn active" onclick="changeVideo('https://www.youtube.com/embed/LrWvUYRvPP8', this)"><strong>Best-Of</strong> J1</button>
+                            <button class="selector-btn" onclick="changeVideo('https://www.youtube.com/embed/UsVRzdwrqQU', this)"><strong>Best-Of</strong> J2</button>
+                            <button class="selector-btn" onclick="changeVideo('https://www.youtube.com/embed/6ZBwJIiCgh8', this)"><strong>Court Métrage</strong></button>
+                        </div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>Format</h4>
+                            <p>Équipes de 2 joueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Cashprize</h4>
+                            <p class="highlight-green">300€ pour les vainqueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Dates</h4>
+                            <p>12 & 13 juillet 2025</p>
+                        </div>
+                    </div>
+                    <div class="leaderboard-section">
+                        <h3>Classement Final</h3>
+                        <div class="table-scroll">
+                            <table class="leaderboard-table">
+                                <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Équipe</th>
+                                    <th>Joueurs</th>
+                                    <th>Points</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <tr class="rank-1">
+                                <td>1er</td>
+                                <td><strong>Team Stade</strong></td>
+                                <td>Infornia, Varimatrax</td>
+                                <td>66</td>
+                            </tr>
+                            <tr>
+                                <td>2e</td>
+                                <td>Tableaux Généraux Basse Tension</td>
+                                <td>Azaaran, Mathkiler</td>
+                                <td>58</td>
+                            </tr>
+                            <tr>
+                                <td>3e</td>
+                                <td>Bober Bro</td>
+                                <td>Garscene, Reywrath</td>
+                                <td>49</td>
+                            </tr>
+                            <tr>
+                                <td>4e</td>
+                                <td>Graulapayng</td>
+                                <td>Azeohd, Gontran_Bonheur</td>
+                                <td>47</td>
+                            </tr>
+                            <tr>
+                                <td>5e</td>
+                                <td>Bro</td>
+                                <td>Bream, Orenfi</td>
+                                <td>41</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <h3>Jeux de l'édition</h3>
+                    <div class="games-grid-archive">
+                        <img src="/images/2025_jeux/brawlhalla.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 200, 0)" title="Brawlhalla">
+                        <img src="/images/2025_jeux/league_of_legends.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 974, 0)" title="League of Legends">
+                        <img src="/images/2025_jeux/bedwars.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 1592, 0)" title="Bedwars">
+                        <img src="/images/2025_jeux/codenames.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2097, 0)" title="Codenames">
+                        <img src="/images/2025_jeux/pubg.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2182, 0)" title="PUBG">
+                        <img src="/images/2025_jeux/quiz.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2901, 0)" title="Quiz">
+                        <img src="/images/2025_jeux/skribble.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 192, 1)" title="Skribble">
+                        <img src="/images/2025_jeux/star_craft.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 531, 1)" title="StarCraft">
+                        <img src="/images/2025_jeux/mario_kart_8.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 1194, 1)" title="Mario Kart 8">
+                        <img src="/images/2025_jeux/valorant.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 1565, 1)" title="Valorant">
+                        <img src="/images/2025_jeux/golf_gang.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 2009, 1)" title="Golf Gang">
+                        <img src="/images/2025_jeux/blind_test.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 2666, 1)" title="Blind Test">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/mentions-legales" >Mentions légales</a>
+    </div>
+    <p>TSLAN — Games On The Stage</p>
+</footer>
+
+</body>
+</html>
