@@ -296,6 +296,7 @@ main {
     gap: 1rem;
     margin-top: 1.5rem;
     justify-content: center;
+    text-align: center;
 }
 
 .hero-buttons a {
@@ -458,5 +459,208 @@ footer {
     .page-intro,
     .hero-card p {
         font-size: 0.98rem;
+    }
+}
+
+.copy-address {
+    cursor: pointer;
+    color: var(--accent);
+    border-bottom: 1px dashed var(--accent);
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.copy-address:hover,
+.copy-address:focus-visible {
+    color: #80eac9;
+}
+
+.cursor-tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--surface-strong);
+    color: var(--text);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    border: 1px solid var(--border);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -130%);
+    transition: opacity 0.15s ease;
+    z-index: 60;
+}
+
+.cursor-tooltip.show {
+    opacity: 1;
+}
+
+.copy-address:hover::after,
+.copy-address:focus-visible::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface-strong);
+    color: var(--accent);
+    font-weight: 700;
+    padding: 0.75rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 12px 24px rgba(57, 217, 159, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 999;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.venue-thumb {
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+}
+
+.venue-thumb:hover {
+    transform: scale(1.04);
+}
+
+.buttons-flex {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.schedule-notice {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.schedule-notice strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.schedule-notice ul {
+    margin: 0 0 0 1.1rem;
+    list-style: disc;
+}
+
+.schedule-notice li {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 0.35rem;
+}
+
+.schedule-notice li:last-child {
+    margin-bottom: 0;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.schedule-day {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.55rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    word-break: break-word;
+}
+
+.schedule-table thead th {
+    font-weight: 700;
+}
+
+.day-header th {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    padding: 0.75rem 0.5rem;
+    color: #ffffff;
+}
+
+.day-friday { background: #4a5973; }
+.day-saturday { background: #b68ce2; }
+.day-sunday { background: #e57373; }
+
+.col-header th {
+    background: rgba(255, 255, 255, 0.85);
+    color: #111827;
+    font-size: 0.8rem;
+}
+
+.schedule-table td:first-child {
+    width: 32%;
+    font-weight: 600;
+    color: #0d1117;
+}
+
+/* couleurs des lignes, style flashy volontaire (contraste autorisé) */
+.row-setup td { background: #b9c2d0; color: #111827; }
+.row-start td { background: #f6de6b; color: #111827; }
+.row-open td { background: #7ea8e0; color: #111827; }
+.row-game td { background: #c3d6f2; color: #111827; }
+.row-meal td { background: #e08a68; color: #111827; }
+.row-end td { background: #a8dba0; color: #111827; }
+
+.schedule-table td:not(:first-child) {
+    font-weight: 600;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.45rem 0.35rem;
+        font-size: 0.78rem;
+    }
+
+    .day-header th {
+        font-size: 0.95rem;
     }
 }

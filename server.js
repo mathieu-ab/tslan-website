@@ -29,6 +29,14 @@ app.get("/participation", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "participation.html"));
 });
 
+app.get("/public", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "public.html"));
+});
+
+app.get("/planning", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "planning.html"));
+});
+
 app.get("/mentions-legales", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "mentions-legales.html"));
 });

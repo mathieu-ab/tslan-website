@@ -21,7 +21,9 @@
             <ul class="nav-links">
                 <li><a href="/">Accueil</a></li>
                 <li><a href="/jeux">Jeux</a></li>
+                <li><a href="/planning">Planning</a></li>
                 <li><a class="active" href="/participation">Participation</a></li>
+                <li><a href="/public">Public</a></li>
                 <li><a href="/archives">Archives</a></li>
             </ul>
         </div>
@@ -31,24 +33,35 @@
             <div class="hero-card">
                 <h1>Info Participation</h1>
                 <p class="page-intro">
-                    Vous souhaitez participer à la TSLAN 2026 ? Voici l'essentiel à savoir avant de remplir le formulaire de pré-inscription. Cette édition se jouera à <strong>8 équipes</strong>, les 24 et 25 octobre 2026 à Bar-sur-Seine (10110).
+                    Vous souhaitez participer à la TSLAN 2026 ? Voici l'essentiel à savoir avant de remplir le formulaire d'inscription. Cette édition se jouera à <strong>8 équipes</strong>, les 24 et 25 octobre 2026 à Bar-sur-Seine (10110).
                 </p>
 
                 <div class="content-card">
-                    <h2>Comment ça marche ?</h2>
-                    <p>Remplir le formulaire ne garantit pas une place. Les équipes sont sélectionnées selon l'ordre de pré-inscription. Si votre duo est retenu, l'organisation vous recontacte directement. Sinon, vous êtes placés en liste d'attente en cas de désistement.</p>
-                    <p>La pré-inscription ne vous engage à rien : vous pouvez vous rétracter à tout moment en écrivant à <code>gamesonthestage@gmail.com</code></p>
 
-                    <h3>Dates clés</h3>
+                    <h2>Dates clés</h2>
                     <ul>
-                        <li>Fin de la pré-inscription : <strong>28 août 2026</strong></li>
-                        <li>À partir de cette date : confirmation de participation selon l'ordre d'inscription, présentation du règlement et paiement des frais</li>
+                        <li>Fin de l'inscription : <strong>9 octobre 2026</strong></li>
+                        <li>Date de l'évènement : <strong>24 et 25 octobre 2026</strong></li>
+                        <li>Vous êtes participant ? rendez-vous dans salle le 23 octobre entre 10h et 23h59 pour installer vos setups</li>
                     </ul>
+
+                    <h2>Où</h2>
+                    <p>
+                        L'évènement se passe à l'Art-en-Seine de Bar-sur-Seine. Adresse :
+                        <span class="copy-address" id="eventAddress" tabindex="0" role="button" aria-label="Copier l'adresse">
+                            19 Bis Av. du Professeur Paul Portier, 10110 Bar-sur-Seine
+                        </span>. C'est ici ->
+                        <a href="https://www.google.com/maps/search/?api=1&query=19+Bis+Av.+du+Professeur+Paul+Portier%2C+10110+Bar-sur-Seine" target="_blank" rel="noopener">
+                            <img src="/images/art-en-seine.png" alt="Art-en-Seine, Bar-sur-Seine" class="venue-thumb">
+                        </a>
+                        </p>
+
+                    
 
                     <h2>Les épreuves</h2>
                     <p>12 épreuves sur 12 jeux différents : League of Legends, Counter-Strike 2, Minecraft, Trackmania, Just Dance, Left 4 Dead 2, Gang Beasts, Hollow Knight: Silksong, The Finals, Rocket League, un quiz et un jeu mystère.</p>
 
-                    <h3>Récompenses</h3>
+                    <h2>Récompenses</h2>
                     <ul>
                         <li>1ère équipe : 400 € (200 €/pers.)</li>
                         <li>2ème équipe : 100 € (50 €/pers.)</li>
@@ -56,7 +69,7 @@
                     </ul>
 
                     <h2>Frais d'inscription</h2>
-                    <p><strong>45 € par participant</strong>, réglés seulement après confirmation. Ils financent en partie l'hébergement, le cash prize des vainqueurs et l'organisation de l'événement.</p>
+                    <p><strong>45 € par participant</strong>, réglés pendant l'inscription. Ils financent en partie l'hébergement, le cash prize des vainqueurs et l'organisation de l'événement.</p>
 
                     <h2>Matériel & jeux</h2>
                     <p>Chaque participant vient avec son propre PC (ou setup nécessaire), en état de marche et suffisamment performant, ainsi que les jeux requis à jour. L'organisation ne fournit ni matériel ni jeux.</p>
@@ -66,7 +79,7 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="https://forms.gle/6mqtfGY8sLNpy5319" target="_blank" rel="noopener">S'inscrire ici</a>
+                    <a href="https://www.helloasso.com/associations/games-on-the-stage/evenements/tslan-2026" target="_blank" rel="noopener">S'inscrire ici</a>
                 </div>
             </div>
 
@@ -78,6 +91,8 @@
         </div>
         <p>TSLAN — Games On The Stage</p>
     </footer>
-    <script src="/js/jeux.js" defer></script>
+    <script src="/js/participation.js" defer></script>
+    <span class="cursor-tooltip" id="cursorTooltip">Copier l'adresse</span>
+    <div class="copy-toast" id="copyToast">Adresse copiée</div>
 </body>
 </html>
