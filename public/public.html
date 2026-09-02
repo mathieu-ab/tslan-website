@@ -6,6 +6,8 @@
     <title>TSLAN — Public</title>
     <link rel="icon" type="image/ico" href="images/favicon.ico">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/public.css">
+    <script src="/js/public.js" defer></script>
     <link rel="canonical" href="https://tslan.fr/public" />
 </head>
 <body>
@@ -20,10 +22,10 @@
         <div class="nav-inner">
             <ul class="nav-links">
                 <li><a href="/">Accueil</a></li>
-                <li><a href="/jeux">Jeux</a></li>
-                <li><a href="/planning">Planning</a></li>
-                <li><a href="/participation">Participation</a></li>
                 <li><a class="active" href="/public">Public</a></li>
+                <li><a href="/participation">Participation</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
                 <li><a href="/archives">Archives</a></li>
             </ul>
         </div>
@@ -31,7 +33,7 @@
     <main>
         <section class="hero-panel">
             <div class="hero-card">
-                <h1>Info  au public</h1>
+                <h1>Info au public</h1>
                 <p class="page-intro">
                     Vous souhaitez assister à la TSLAN 2k26 en tant que spectateur ? Voici les horaires, tarifs et règles à connaître avant de venir.
                 </p>
@@ -51,7 +53,93 @@
                         <li><strong>10 €</strong> / pass weekend</li>
                     </ul>
 
-                    <h2>Droit à l'image et diffusion</h2>
+                    <h2>Lieu</h2>
+                    <p>
+                        L'évènement se passe à l'Art-en-Seine de Bar-sur-Seine. Adresse :
+                        <span class="copy-address" id="eventAddress" tabindex="0" role="button" aria-label="Copier l'adresse">
+                            19 Bis Av. du Professeur Paul Portier, 10110 Bar-sur-Seine
+                        </span>.
+                    </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=19+Bis+Av.+du+Professeur+Paul+Portier%2C+10110+Bar-sur-Seine" target="_blank" rel="noopener">
+                            <img src="/images/art-en-seine.png" alt="Art-en-Seine, Bar-sur-Seine" class="venue-thumb">
+                        </a>
+
+                    <h2>TSLAN 2k25 en image</h2>
+                    <div class="event-gallery" aria-label="Photos de l'événement TSLAN">
+                        <div class="event-gallery-track">
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image0.png" alt="Ambiance de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image1.png" alt="La scène de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image2.png" alt="Le public de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image3.png" alt="Un moment de compétition à la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image4.png" alt="Les participants de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image5.png" alt="Une animation de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image6.png" alt="L'ambiance de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image7.png" alt="Une partie de jeu à la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image8.png" alt="La salle de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image9.png" alt="Un temps fort de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image10.png" alt="Les joueurs de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image11.png" alt="La scène pendant la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image12.png" alt="Le public pendant la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image13.png" alt="Un souvenir de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image14.png" alt="La TSLAN 2k25 sur scène" loading="lazy">
+                            </figure>
+                        </div>
+                        <button class="event-gallery-control event-gallery-prev" type="button" aria-label="Image précédente">&#10094;</button>
+                        <button class="event-gallery-control event-gallery-next" type="button" aria-label="Image suivante">&#10095;</button>
+                        <div class="event-gallery-dots" role="tablist" aria-label="Sélectionner une photo">
+                            <button type="button" class="event-gallery-dot is-active" aria-label="Afficher l'image 1" aria-selected="true"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 2" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 3" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 4" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 5" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 6" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 7" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 8" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 9" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 10" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 11" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 12" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 13" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 14" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 15" aria-selected="false"></button>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <details class="content-card collapsible-card">
+                    <summary>Droit à l'image, diffusion et règlement</summary>
+                    <div class="collapsible-card-content">
+                    </br>
                     <p>
                         La TSLAN 2k26 est un événement filmé dans son intégralité et diffusé en direct sur la chaîne <strong>Teoad Show</strong> sur Twitch.tv. Les vidéos issues de cette diffusion (rediffusions, extraits) sont ensuite republiées sur la chaîne YouTube Teoad Show, ainsi que potentiellement sur nos réseaux (Instagram, TikTok) à des fins de communication autour de l'événement.
                     </p>
@@ -94,14 +182,13 @@
                         <li>Le staff se réserve le droit de refuser de servir toute personne en état d'ébriété manifeste.</li>
                         <li>Merci de jeter vos déchets dans les contenants prévus à cet effet.</li>
                     </ul>
-
-                </div>
+                    </div>
+                </details>
 
                 <div class="hero-buttons">
                     <a href="https://www.helloasso.com/associations/games-on-the-stage/evenements/billetterie-public-tslan2k26" target="_blank" rel="noopener">Acheter ma place</a>
                 </div>
             </div>
-
         </section>
     </main>
     <footer>

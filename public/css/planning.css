@@ -1,0 +1,114 @@
+.schedule-notice {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.schedule-notice strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.schedule-notice ul {
+    margin: 0 0 0 1.1rem;
+    list-style: disc;
+}
+
+.schedule-notice li {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 0.35rem;
+}
+
+.schedule-notice li:last-child {
+    margin-bottom: 0;
+}
+
+.schedule-grid {
+    display: flex;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.schedule-day {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.55rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    word-break: break-word;
+}
+
+.schedule-table thead th {
+    font-weight: 700;
+}
+
+.day-header th {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    padding: 0.75rem 0.5rem;
+    color: #ffffff;
+}
+
+.day-friday { background: #4a5973; }
+.day-saturday { background: #b68ce2; }
+.day-sunday { background: #e57373; }
+
+.col-header th {
+    background: rgba(255, 255, 255, 0.85);
+    color: #111827;
+    font-size: 0.8rem;
+}
+
+.schedule-table td:first-child {
+    width: 32%;
+    font-weight: 600;
+    color: #0d1117;
+}
+
+.row-setup td { background: #b9c2d0; color: #111827; }
+.row-start td { background: #f6de6b; color: #111827; }
+.row-open td { background: #7ea8e0; color: #111827; }
+.row-game td { background: #c3d6f2; color: #111827; }
+.row-meal td { background: #e08a68; color: #111827; }
+.row-end td { background: #a8dba0; color: #111827; }
+
+.schedule-table td:not(:first-child) {
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.45rem 0.35rem;
+        font-size: 0.78rem;
+    }
+
+    .day-header th {
+        font-size: 0.95rem;
+    }
+}
