@@ -238,6 +238,79 @@ main {
     transform: translateY(-1px);
 }
 
+.hero-buttons a.ticket-button {
+    --ticket-rotate-x: 0deg;
+    --ticket-rotate-y: 0deg;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: min(100%, 560px);
+    min-height: 76px;
+    padding: 1.2rem 2rem;
+    border: 2px solid #b8ffe5;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #52edb2, #21c98e);
+    color: #04130f;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 16px 34px rgba(57, 217, 159, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    animation: ticket-button-glow 3s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s ease;
+}
+
+.hero-buttons a.ticket-button::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: -1;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+    content: "";
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+}
+
+.hero-buttons a.ticket-button:hover,
+.hero-buttons a.ticket-button:focus-visible {
+    transform: perspective(550px) translateY(-4px) rotateX(var(--ticket-rotate-x)) rotateY(var(--ticket-rotate-y)) scale(1.03);
+    filter: brightness(1.08);
+    box-shadow: 0 20px 42px rgba(57, 217, 159, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.hero-buttons a.ticket-button:hover::before,
+.hero-buttons a.ticket-button:focus-visible::before {
+    left: 135%;
+}
+
+.hero-buttons a.ticket-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+@keyframes ticket-button-glow {
+    0%,
+    100% {
+        box-shadow: 0 16px 34px rgba(57, 217, 159, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 18px 40px rgba(57, 217, 159, 0.48), 0 0 18px rgba(57, 217, 159, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-buttons a.ticket-button {
+        animation: none;
+        transition: none;
+    }
+
+    .hero-buttons a.ticket-button::before {
+        transition: none;
+    }
+}
+
 .video-background {
     position: fixed;
     inset: 0;

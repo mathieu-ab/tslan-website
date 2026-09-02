@@ -32,10 +32,12 @@
     display: flex;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .schedule-day {
+    display: flex;
+    flex: 1 1 0;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -44,6 +46,7 @@
 
 .schedule-table {
     width: 100%;
+    height: 100%;
     border-collapse: collapse;
     table-layout: fixed;
 }
