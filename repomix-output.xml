@@ -1,0 +1,4188 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  css/
+    archives.css
+    classement.css
+    index.css
+    jeux.css
+    main.css
+    planning.css
+    public.css
+  images/
+    2025_event_image/
+      image0.webp
+      image1.webp
+      image10.webp
+      image11.webp
+      image12.webp
+      image13.webp
+      image14.webp
+      image2.webp
+      image3.webp
+      image4.webp
+      image5.webp
+      image6.webp
+      image7.webp
+      image8.webp
+      image9.webp
+    2025_jeux/
+      bedwars.webp
+      blind_test.webp
+      brawlhalla.webp
+      codenames.webp
+      golf_gang.webp
+      league_of_legends.webp
+      mario_kart_8.webp
+      pubg.webp
+      quiz.webp
+      skribble.webp
+      star_craft.webp
+      valorant.webp
+    2025_logo_team/
+      Bober_Bro.png
+      Bro.png
+      Graulapayng.png
+      Tableaux_Gnraux_Basse_Tension.png
+      Team_Stade.png
+    2026_jeux/
+      counter_strike_2.webp
+      gang_beasts.webp
+      jeu_mystère.webp
+      just_dance.webp
+      league_of_legends.webp
+      left_4_dead_2.webp
+      minecraft.webp
+      quiz.webp
+      rocket_league.webp
+      silksong.webp
+      the_finals.webp
+      trackmania.webp
+    2026_logo_team/
+      2B.webp
+      GS.webp
+      LDGp.webp
+      LDGr.webp
+      TGO.webp
+      TS.webp
+      UE.webp
+      VHS.webp
+    icons/
+      discord.png
+      twitch.png
+      x.png
+      youtube.png
+    art-en-seine.png
+    favicon.ico
+  js/
+    archives.js
+    classement.js
+    index.js
+    jeux.js
+    obs-common.js
+    participation.js
+    public.js
+    ticket-button.js
+  videos/
+    game_trailer/
+      counter_strike_2.webm
+      gang_beast.webm
+      just_dance.webm
+      league_of_legends.webm
+      left_4_dead_2.webm
+      minecraft.webm
+      rocket_league.webm
+      silksong.webm
+      the_finals.webm
+      trackmania.webm
+    background.webm
+  archives.html
+  classement.html
+  index.html
+  jeux.html
+  mentions-legales.html
+  obs-classement-gaming.html
+  obs-classement-old.html
+  obs-classement.html
+  planning.html
+  public.html
+.gitignore
+LICENSE
+package.json
+README.md
+server.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/css/classement.css">
+:root {
+    --bg: #060915;
+    --surface: rgba(10, 16, 29, 0.88);
+    --surface-soft: rgba(13, 18, 35, 0.92);
+    --text: #e9eef7;
+    --muted: #9cb2cf;
+    --accent: #39d99f;
+    --accent-soft: rgba(57, 217, 159, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    background: transparent;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+main#content {
+    max-width: 1080px;
+    margin: 2.5rem auto 4rem;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+nav {
+    background: rgba(2, 8, 18, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ---------- Header ---------- */
+
+.classement-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.classement-main-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: #ffffff;
+    line-height: 1.05;
+}
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.5rem 0.5rem 0.5rem 0.9rem;
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(57, 217, 159, 0.6);
+    animation: live-pulse 1.8s ease-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes live-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(57, 217, 159, 0.55); }
+    70% { box-shadow: 0 0 0 8px rgba(57, 217, 159, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(57, 217, 159, 0); }
+}
+
+.refresh-btn {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background 0.25s ease, transform 0.5s ease;
+}
+
+.refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.refresh-btn.spinning {
+    transform: rotate(360deg);
+}
+
+/* ---------- Sections communes ---------- */
+
+.content-card h2,
+.games-section h2 {
+    color: #ffffff;
+    margin-bottom: 0.9rem;
+}
+
+.games-section {
+    margin-top: 2rem;
+}
+
+.games-intro {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+.state-message {
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* ---------- Tableaux ---------- */
+
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 0.75rem;
+    padding-bottom: 0.25rem;
+}
+
+.table-scroll::-webkit-scrollbar {
+    height: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+}
+
+.general-table {
+    min-width: 640px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 1rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.leaderboard-table thead th {
+    color: #ffffff;
+}
+
+.leaderboard-table td.team-cell {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.team-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+}
+
+.team-fullname {
+    white-space: normal;
+}
+
+.leaderboard-table tr.rank-1 {
+    color: #f9d464;
+    background: rgba(255, 215, 0, 0.08);
+}
+
+.leaderboard-table tr.rank-2 {
+    color: #d8e2f0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.leaderboard-table tr.rank-3 {
+    color: #e3b98a;
+    background: rgba(205, 127, 50, 0.08);
+}
+
+.skeleton-row td {
+    color: var(--muted);
+    text-align: center;
+    padding: 1.4rem;
+}
+
+/* ---------- Accordéon épreuves ---------- */
+
+.accordion {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.accordion-item {
+    background: rgba(10, 16, 29, 0.589);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 0.9rem 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.accordion-header:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.game-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.game-name {
+    flex: 1;
+    text-align: left;
+}
+
+.arrow {
+    font-size: 0.95rem;
+    transition: transform 0.35s ease;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 900px;
+}
+
+.accordion-content-inner {
+    padding: 0.5rem 1.3rem 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 860px) {
+    main#content {
+        margin: 1.8rem auto 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .classement-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .accordion-header {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+}
+</file>
+
+<file path="public/js/classement.js">
+// Liste des épreuves attendues, dans l'ordre d'affichage.
+// "key" doit correspondre exactement à la clé renvoyée par /api/data (server.js -> sheetsConfig).
+const GAMES = [
+    { key: "LeagueofLegends", label: "League of Legends", icon: "league_of_legends.webp" },
+    { key: "Minecraft UHC Sphères", label: "Minecraft UHC Sphères", icon: "minecraft.webp" },
+    { key: "CounterStrike2", label: "Counter Strike 2", icon: "counter_strike_2.webp" },
+    { key: "Gang Beasts", label: "Gang Beasts", icon: "gang_beasts.webp" },
+    { key: "Just Dance", label: "Just Dance", icon: "just_dance.webp" },
+    { key: "Left4Dead 2", label: "Left 4 Dead 2", icon: "left_4_dead_2.webp" },
+    { key: "Trackmania", label: "Trackmania", icon: "trackmania.webp" },
+    { key: "Hollow Knight Silksong", label: "Hollow Knight Silksong", icon: "silksong.webp" },
+    { key: "The Finals", label: "The Finals", icon: "the_finals.webp" },
+    { key: "Rocket League", label: "Rocket League", icon: "rocket_league.webp" },
+    { key: "Jeu mystère", label: "Jeu Mystère", icon: "jeu_mystère.webp" },
+    { key: "Quiz", label: "Quiz", icon: "quiz.webp" },
+];
+
+const ICON_BASE = "/images/2026_jeux/";
+const REFRESH_INTERVAL_MS = 20000; // le serveur garde son propre cache de 30s, on interroge un peu plus vite que ça sans le forcer
+
+const generalBody = document.getElementById("general-table-body");
+const generalError = document.getElementById("general-error");
+const accordionContainer = document.getElementById("games-accordion");
+const gamesEmptyMessage = document.getElementById("games-empty");
+const lastUpdateLabel = document.getElementById("last-update-label");
+const refreshBtn = document.getElementById("refresh-btn");
+
+// Mémorise quelle épreuve est actuellement dépliée, pour ne pas la refermer
+// quand les données sont rafraîchies automatiquement.
+let openGameKey = null;
+
+/**
+ * Une ligne "vide" côté Google Sheets arrive sous forme de tableau vide [].
+ * Ce garde-fou filtre ces lignes de séparation.
+ */
+function isEmptyRow(row) {
+    return !Array.isArray(row) || row.length === 0;
+}
+
+/**
+ * Format des données de classement d'une épreuve : ["1e", "VHS"], [], ["2e", "UE"], ...
+ * On filtre les lignes vides ET les lignes sans équipe renseignée
+ * (cas où seul le rang est présent avant que la partie ne soit terminée).
+ */
+function parseGameRanking(rows) {
+    if (!Array.isArray(rows)) return [];
+    return rows
+        .filter((row) => !isEmptyRow(row) && row[0] && row[1])
+        .map((row) => ({ rank: row[0], team: row[1] }));
+}
+
+/**
+ * Format du classement général : ["1e", "", "VHS", "", "0"], [], ...
+ */
+function parseGeneralRanking(rows) {
+    if (!Array.isArray(rows)) return [];
+    return rows
+        .filter((row) => !isEmptyRow(row) && row.length >= 5 && row[0] && row[2])
+        .map((row) => ({ rank: row[0], team: row[2], points: row[4] }));
+}
+
+/**
+ * Format du roster : ["Vacances Hors Surtension", "VHS", "Mathkiller"], ["", "", "Azaaran"], ...
+ * Une ligne avec un code équipe (colonne 1) démarre une nouvelle équipe et
+ * donne son nom complet (colonne 0), la ligne suivante (colonne 1 vide)
+ * donne le 2e joueur.
+ */
+function buildRoster(rows) {
+    const roster = {};
+    if (!Array.isArray(rows)) return roster;
+
+    for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        if (isEmptyRow(row) || !row[1]) continue;
+
+        const teamCode = row[1];
+        const fullName = row[0] || teamCode;
+        const firstPlayer = row[2] || null;
+        const nextRow = rows[i + 1];
+        const secondPlayer = !isEmptyRow(nextRow) && !nextRow[1] ? nextRow[2] : null;
+
+        roster[teamCode] = { fullName, players: [firstPlayer, secondPlayer].filter(Boolean) };
+    }
+
+    return roster;
+}
+
+const LOGO_BASE = "/images/2026_logo_team/";
+
+// La casse réelle des fichiers de logo sur le serveur n'est pas garantie
+// identique à celle du code équipe reçu du sheet (VHS, TGO, LDGr...). On
+// essaie donc la casse exacte d'abord, puis on se rabat automatiquement sur
+// la version minuscule si la 1ère tentative échoue (404), avant d'abandonner
+// proprement. Ça évite de devoir renommer des fichiers ou de deviner.
+window.__logoFallback = function (img) {
+    const next = img.dataset.fallbackSrc;
+    if (next) {
+        delete img.dataset.fallbackSrc;
+        img.src = next;
+    } else {
+        img.remove();
+    }
+};
+
+/** Petit logo d'équipe, masqué proprement si aucune variante de casse n'existe. */
+function teamLogoImg(code) {
+    const exact = encodeURIComponent(code) + ".webp";
+    const lower = encodeURIComponent(code.toLowerCase()) + ".webp";
+    return `<img class="team-logo" src="${LOGO_BASE}${exact}" data-fallback-src="${LOGO_BASE}${lower}" alt="" loading="lazy" onerror="window.__logoFallback(this)">`;
+}
+
+function isValidated(gameEntry) {
+    if (!gameEntry) return false;
+    const value = (gameEntry.validation || "").toString().trim().toUpperCase();
+    return value === "TRUE";
+}
+
+function rankClass(index) {
+    if (index === 0) return "rank-1";
+    if (index === 1) return "rank-2";
+    if (index === 2) return "rank-3";
+    return "";
+}
+
+/** Nom complet + logo pour une cellule équipe. Reste sur le code si l'équipe est inconnue du roster. */
+function teamCellHtml(code, roster) {
+    const fullName = (roster[code] && roster[code].fullName) || code;
+    return `${teamLogoImg(code)}<span class="team-fullname">${fullName}</span>`;
+}
+
+function renderGeneral(data, roster) {
+    const generalEntry = data["Général"];
+    const rows = parseGeneralRanking(generalEntry && generalEntry.data);
+
+    generalBody.innerHTML = "";
+
+    if (!generalEntry || rows.length === 0) {
+        generalError.hidden = false;
+        return;
+    }
+
+    generalError.hidden = true;
+
+    rows.forEach((row, index) => {
+        const tr = document.createElement("tr");
+        tr.className = rankClass(index);
+
+        const teamInfo = roster[row.team];
+        const players = teamInfo && teamInfo.players.length ? teamInfo.players.join(" & ") : "—";
+
+        tr.innerHTML = `
+            <td>${row.rank}</td>
+            <td class="team-cell">${teamCellHtml(row.team, roster)}</td>
+            <td>${players}</td>
+            <td>${row.points ?? "—"}</td>
+        `;
+
+        generalBody.appendChild(tr);
+    });
+}
+
+function renderGameTable(rows, roster) {
+    if (rows.length === 0) {
+        return `<p class="state-message">Classement pas encore disponible.</p>`;
+    }
+
+    const bodyRows = rows
+        .map(
+            (row, index) => `
+            <tr class="${rankClass(index)}">
+                <td>${row.rank}</td>
+                <td class="team-cell">${teamCellHtml(row.team, roster)}</td>
+            </tr>`
+        )
+        .join("");
+
+    return `
+        <div class="table-scroll">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr><th>Rang</th><th>Équipe</th></tr>
+                </thead>
+                <tbody>${bodyRows}</tbody>
+            </table>
+        </div>
+    `;
+}
+
+function toggleGame(key, headerEl) {
+    const item = headerEl.closest(".accordion-item");
+    const isCurrentlyActive = item.classList.contains("active");
+
+    accordionContainer.querySelectorAll(".accordion-item.active").forEach((el) => {
+        el.classList.remove("active");
+    });
+
+    if (!isCurrentlyActive) {
+        item.classList.add("active");
+        openGameKey = key;
+    } else {
+        openGameKey = null;
+    }
+}
+
+function renderGames(data, roster) {
+    const validatedGames = GAMES.filter((game) => isValidated(data[game.key]));
+
+    accordionContainer.querySelectorAll(".accordion-item").forEach((el) => el.remove());
+
+    if (validatedGames.length === 0) {
+        gamesEmptyMessage.hidden = false;
+        return;
+    }
+
+    gamesEmptyMessage.hidden = true;
+
+    validatedGames.forEach((game) => {
+        const rows = parseGameRanking(data[game.key].data);
+
+        const item = document.createElement("div");
+        item.className = "accordion-item";
+        if (openGameKey === game.key) item.classList.add("active");
+
+        item.innerHTML = `
+            <button class="accordion-header" type="button">
+                <img class="game-icon" src="${ICON_BASE}${game.icon}" alt="" loading="lazy">
+                <span class="game-name">${game.label}</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    ${renderGameTable(rows, roster)}
+                </div>
+            </div>
+        `;
+
+        item.querySelector(".accordion-header").addEventListener("click", (e) => {
+            toggleGame(game.key, e.currentTarget);
+        });
+
+        accordionContainer.appendChild(item);
+    });
+}
+
+function setLastUpdateLabel() {
+    const now = new Date();
+    const time = now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    lastUpdateLabel.textContent = `Dernière mise à jour : ${time}`;
+}
+
+async function loadData({ force = false } = {}) {
+    try {
+        const url = force ? "/api/data?force=1" : "/api/data";
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        const roster = buildRoster(data["Joueur Equipe"] && data["Joueur Equipe"].data);
+
+        renderGeneral(data, roster);
+        renderGames(data, roster);
+        setLastUpdateLabel();
+    } catch (error) {
+        console.error("Erreur lors de la récupération du classement :", error);
+        lastUpdateLabel.textContent = "Impossible de récupérer les données. Nouvelle tentative en cours…";
+    }
+}
+
+function manualRefresh() {
+    refreshBtn.classList.add("spinning");
+    // force=true : bypass le cache serveur (limité côté serveur à 1 appel
+    // réel toutes les 5s, tous visiteurs confondus, pour éviter les abus).
+    loadData({ force: true }).finally(() => {
+        setTimeout(() => refreshBtn.classList.remove("spinning"), 500);
+    });
+}
+
+refreshBtn.addEventListener("click", manualRefresh);
+
+loadData();
+setInterval(loadData, REFRESH_INTERVAL_MS);
+</file>
+
+<file path="public/js/obs-common.js">
+/*
+ * Logique commune aux overlays OBS (classement général).
+ * - Récupère /api/data (même cache serveur que la page /classement)
+ * - Parse "Général" + "Joueur Equipe"
+ * - Gère un rendu "keyé" : chaque équipe garde son élément DOM, les changements
+ *   de rang sont animés (FLIP) au lieu de tout reconstruire.
+ *
+ * Paramètres d'URL utiles :
+ *   ?demo=1       données fictives (pour tester le style sans serveur/sheet)
+ *   ?interval=15  secondes entre 2 rafraîchissements (défaut 10, min 5)
+ */
+(function () {
+    // >>> À ADAPTER si besoin : chemin des logos d'équipe. La casse réelle
+    // des fichiers sur le serveur n'est pas garantie identique à celle du
+    // code équipe reçu du sheet (VHS, TGO, LDGr...) : makeLogo() essaie la
+    // casse exacte d'abord, puis se rabat automatiquement sur la version
+    // minuscule si besoin.
+    const LOGO_PATH = (code) => `/images/2026_logo_team/${encodeURIComponent(code)}.webp`;
+    const LOGO_PATH_LOWER = (code) => `/images/2026_logo_team/${encodeURIComponent(code.toLowerCase())}.webp`;
+
+    const params = new URLSearchParams(location.search);
+    const DEMO = params.get("demo") === "1";
+    const POLL_MS = Math.max(5, Number(params.get("interval")) || 10) * 1000;
+
+    const isEmptyRow = (r) => !Array.isArray(r) || r.length === 0;
+
+    // Format : [nom complet, code équipe, joueur], ["", "", 2e joueur], ...
+    // (colonne 1 = code équipe, vide sur la 2e ligne de la paire).
+    function buildRoster(rows) {
+        const roster = {};
+        if (!Array.isArray(rows)) return roster;
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            if (isEmptyRow(row) || !row[1]) continue;
+            const next = rows[i + 1];
+            const second = !isEmptyRow(next) && !next[1] ? next[2] : null;
+            roster[row[1]] = [row[2] || null, second].filter(Boolean);
+        }
+        return roster;
+    }
+
+    function parseGeneral(data) {
+        const entry = data["Général"];
+        const roster = buildRoster(data["Joueur Equipe"] && data["Joueur Equipe"].data);
+        if (!entry || !Array.isArray(entry.data)) return [];
+        return entry.data
+            .filter((r) => !isEmptyRow(r) && r.length >= 5 && r[0] && r[2])
+            .map((r) => ({
+                rank: r[0],
+                team: r[2],
+                points: r[4] ?? "0",
+                pointsValue: Number(String(r[4] ?? "0").replace(",", ".").replace(/\s/g, "")) || 0,
+                players: roster[r[2]] || [],
+            }));
+    }
+
+    function demoData() {
+        const teams = ["GS", "UE", "VHS", "LDGr", "TS", "LDGp", "TGO", "2bits"];
+        const players = [
+            ["Julien", "Totomas15"], ["Corsamme", "Kyorfi"], ["Mathkiller", "Azaaran"], ["Tintin81", "Nath_k_222"],
+            ["Varimathrax", "Infornia"], ["Xicube", "Flow"], ["Niamyope", "Dibou"], ["Antokaou", "Rey_wrath"],
+        ];
+        const pts = [124, 110, 98, 87, 61, 44, 30, 12];
+        return {
+            "Général": { data: teams.flatMap((t, i) => [[`${i + 1}e`, "", t, "", String(pts[i])], []]) },
+            "Joueur Equipe": { data: teams.flatMap((t, i) => [[t, players[i][0]], ["", players[i][1]]]) },
+        };
+    }
+
+    async function fetchRanking() {
+        const data = DEMO ? demoData() : await (await fetch("/api/data", { cache: "no-store" })).json();
+        return parseGeneral(data);
+    }
+
+    /** Logo d'équipe avec fallback (initiales) si l'image n'existe pas encore. */
+    function makeLogo(code) {
+        const wrap = document.createElement("span");
+        wrap.className = "logo";
+        const img = new Image();
+        img.alt = "";
+        img.src = LOGO_PATH(code);
+        img.dataset.step = "exact";
+        img.onerror = () => {
+            if (img.dataset.step === "exact") {
+                // 1er échec (casse exacte) : on retente en minuscules avant d'abandonner.
+                img.dataset.step = "lower";
+                img.src = LOGO_PATH_LOWER(code);
+                return;
+            }
+            img.remove();
+            wrap.classList.add("logo-fallback");
+            const fb = document.createElement("span");
+            fb.className = "fb";
+            fb.textContent = code.slice(0, 4);
+            wrap.appendChild(fb);
+        };
+        wrap.appendChild(img);
+        return wrap;
+    }
+
+    /**
+     * Rendu keyé + animation FLIP.
+     * hooks.create(row, index) -> élément ; hooks.update(el, row, index, rows) ; hooks.enter(el, index)
+     */
+    function mount(list, rows, hooks, state) {
+        const first = new Map();
+        state.map.forEach((el) => first.set(el, el.getBoundingClientRect().top));
+
+        const seen = new Set();
+        const ordered = rows.map((row, i) => {
+            seen.add(row.team);
+            let el = state.map.get(row.team);
+            if (!el) {
+                el = hooks.create(row, i);
+                state.map.set(row.team, el);
+                list.appendChild(el);
+                if (hooks.enter) hooks.enter(el, i);
+            }
+            hooks.update(el, row, i, rows);
+            return el;
+        });
+
+        state.map.forEach((el, key) => {
+            if (!seen.has(key)) { el.remove(); state.map.delete(key); }
+        });
+
+        ordered.forEach((el) => list.appendChild(el));
+
+        ordered.forEach((el) => {
+            if (!first.has(el)) return;
+            const dy = first.get(el) - el.getBoundingClientRect().top;
+            if (Math.abs(dy) > 1) {
+                el.animate(
+                    [{ transform: `translateY(${dy}px)` }, { transform: "none" }],
+                    { duration: 800, easing: "cubic-bezier(.2,.8,.2,1)" }
+                );
+            }
+        });
+    }
+
+    /** Compteur animé pour les points. */
+    function animateNumber(el, to, raw) {
+        const from = Number(el.dataset.value);
+        el.dataset.value = to;
+        if (Number.isNaN(from) || from === to) { el.textContent = raw; return; }
+        const start = performance.now();
+        const dur = 900;
+        (function tick(now) {
+            const t = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = t < 1 ? Math.round(from + (to - from) * eased) : raw;
+            if (t < 1) requestAnimationFrame(tick);
+        })(start);
+    }
+
+    function start(render) {
+        const state = { map: new Map() };
+        let last = null;
+        async function tick() {
+            try {
+                last = await fetchRanking();
+                render(last, state);
+            } catch (e) {
+                console.error("OBS classement :", e); // on garde l'affichage précédent
+            }
+        }
+        tick();
+        setInterval(tick, POLL_MS);
+    }
+
+    window.OBSRanking = { start, mount, makeLogo, animateNumber };
+})();
+</file>
+
+<file path="public/classement.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Classement</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/classement.css">
+    <link rel="canonical" href="https://tslan.fr/classement" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a class="active" href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="content">
+        <div class="classement-header">
+            <h1 class="classement-main-title">Classement TSLAN 2k26</h1>
+            <div class="live-status">
+                <span class="live-dot"></span>
+                <span id="last-update-label">Chargement des données…</span>
+                <button id="refresh-btn" class="refresh-btn" type="button" title="Actualiser">↻</button>
+            </div>
+        </div>
+
+        <section class="content-card general-section">
+            <h2>Classement général</h2>
+            <div id="general-error" class="state-message" hidden>Impossible de récupérer le classement général pour le moment.</div>
+            <div class="table-scroll">
+                <table class="leaderboard-table general-table">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Équipe</th>
+                            <th>Joueurs</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="general-table-body">
+                        <tr class="skeleton-row"><td colspan="4">Chargement…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="games-section">
+            <h2>Épreuves</h2>
+            <p class="games-intro">Cliquez sur une épreuve terminée pour afficher son classement.</p>
+            <div id="games-accordion" class="accordion">
+                <p id="games-empty" class="state-message" hidden>Aucun classement d'épreuve n'est disponible pour le moment.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+
+    <script src="/js/classement.js" defer></script>
+</body>
+</html>
+</file>
+
+<file path="public/obs-classement-gaming.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Overlay classement (gaming)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #ff9a1f;
+            --red: #ff3b30;
+            --pink: #ff2d95;
+            --grad: linear-gradient(90deg, var(--orange), var(--red) 55%, var(--pink));
+            --panel: rgba(26, 6, 18, 0.80);
+            --text: #fff4ee;
+            --muted: #ffb9c9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* rem indexé sur la fenêtre : scalable sur n'importe quelle taille de source navigateur OBS */
+        html { font-size: min(2.6vh, 2.2vw); background: transparent; }
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            background: transparent;
+            color: var(--text);
+            font-family: "Chakra Petch", "Bahnschrift", "Arial Narrow", Impact, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .board {
+            height: 100%;
+            padding: 0.6rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        /* ---------- En-tête HUD ---------- */
+        header {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding-bottom: 0.35rem;
+            position: relative;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 0.12rem;
+            background: var(--grad);
+            box-shadow: 0 0 0.8rem rgba(255, 45, 149, 0.7);
+        }
+
+        .title {
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0.08em;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 0.4rem rgba(255, 59, 48, 0.55));
+        }
+
+        .slashes {
+            width: 1.6rem;
+            height: 1rem;
+            background: repeating-linear-gradient(115deg, var(--orange) 0 0.18rem, transparent 0.18rem 0.42rem);
+        }
+
+        .live {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+        }
+
+        .live i {
+            width: 0.5rem; height: 0.5rem; border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 0.6rem var(--red);
+            animation: blink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0.25; } }
+
+        /* ---------- Liste : cascade en escalier ---------- */
+        #list {
+            list-style: none;
+            flex: 1 1 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .row {
+            --shift: calc(var(--i, 0) * 1rem);
+            flex: 1 1 0;
+            max-height: 5.6rem;
+            min-height: 0;
+            margin-left: var(--shift);
+            filter: drop-shadow(0 0.15rem 0.5rem rgba(0, 0, 0, 0.45));
+        }
+
+        .row.first { filter: drop-shadow(0 0 0.9rem rgba(255, 59, 48, 0.65)); }
+
+        .shape {
+            position: relative;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 3.4rem 3.6rem minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 0 2rem 0 1.4rem;
+            background:
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px),
+                var(--panel);
+            clip-path: polygon(1.3rem 0, 100% 0, calc(100% - 1.3rem) 100%, 0 100%);
+            overflow: hidden;
+        }
+
+        /* Barre d'énergie : largeur proportionnelle aux points du leader */
+        .bar {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: var(--pct, 4%);
+            background: var(--grad);
+            opacity: 0.38;
+            transition: width 1s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .bar::after {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; right: 0;
+            width: 0.22rem;
+            background: #fff;
+            box-shadow: 0 0 0.7rem 0.1rem var(--pink);
+            transform: skewX(-18deg);
+        }
+
+        .shape > *:not(.bar) { position: relative; z-index: 1; }
+
+        .rank {
+            text-transform: none;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 2.3rem;
+            line-height: 1;
+            text-align: center;
+            color: transparent;
+            -webkit-text-stroke: 0.07rem var(--pink);
+        }
+
+        .first .rank {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-stroke: 0;
+            filter: drop-shadow(0 0 0.35rem rgba(255, 154, 31, 0.8));
+        }
+
+        /* Logo en hexagone à bordure dégradée */
+        .logo {
+            width: 3.6rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--grad);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+        }
+
+        .logo img,
+        .logo .fb {
+            width: calc(100% - 0.28rem);
+            height: calc(100% - 0.28rem);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            background: #22091a;
+        }
+
+        .logo img { object-fit: contain; padding: 0.3rem; }
+
+        /* Fallback (logo manquant) : initiales de l'équipe dans l'hexagone */
+        .logo .fb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--orange);
+        }
+
+        .info { min-width: 0; }
+
+        .team {
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: 0 0 0.6rem rgba(255, 59, 48, 0.5);
+        }
+
+        .members {
+            margin-top: 0.25rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .members b {
+            color: var(--orange);
+            font-weight: 700;
+            margin: 0 0.35em;
+        }
+
+        .points {
+            text-align: right;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 0.7rem rgba(255, 45, 149, 0.65);
+        }
+
+        .points small {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            margin-left: 0.4rem;
+            color: var(--orange);
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <header>
+            <span class="slashes"></span>
+            <span class="title">Classement général</span>
+            <span class="live"><i></i>LIVE</span>
+        </header>
+        <ol id="list"></ol>
+    </div>
+
+    <script src="/js/obs-common.js"></script>
+    <script>
+        const list = document.getElementById("list");
+
+        OBSRanking.start((rows, state) => {
+            const max = Math.max(...rows.map((r) => r.pointsValue), 1);
+
+            OBSRanking.mount(list, rows, {
+                create(row) {
+                    const li = document.createElement("li");
+                    li.className = "row";
+                    li.innerHTML = `
+                        <div class="shape">
+                            <div class="bar"></div>
+                            <span class="rank"></span>
+                            <span class="logo-slot"></span>
+                            <div class="info"><div class="team"></div><div class="members"></div></div>
+                            <div class="points"><span class="pts-value" data-value=""></span><small>PTS</small></div>
+                        </div>`;
+                    li.querySelector(".logo-slot").replaceWith(OBSRanking.makeLogo(row.team));
+                    return li;
+                },
+                update(el, row, i) {
+                    el.style.setProperty("--i", i);
+                    el.classList.toggle("first", i === 0);
+                    el.querySelector(".bar").style.setProperty("--pct", (4 + (row.pointsValue / max) * 82) + "%");
+                    el.querySelector(".rank").textContent = row.rank;
+                    el.querySelector(".team").textContent = row.team;
+                    el.querySelector(".members").innerHTML = row.players
+                        .map((p) => p.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])))
+                        .join("<b>/</b>");
+                    OBSRanking.animateNumber(el.querySelector(".pts-value"), row.pointsValue, row.points);
+                },
+                enter(el, i) {
+                    el.animate(
+                        [{ opacity: 0, transform: "translateX(-3rem)" }, { opacity: 1, transform: "none" }],
+                        { duration: 600, delay: i * 90, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" }
+                    );
+                },
+            }, state);
+        });
+    </script>
+</body>
+</html>
+</file>
+
+<file path="public/obs-classement-old.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Overlay classement (classique)</title>
+    <style>
+        :root {
+            --panel: rgba(8, 12, 24, 0.78);
+            --panel-strong: rgba(255, 255, 255, 0.08);
+            --text: #f2f6ff;
+            --muted: #a9b8d0;
+            --accent: #39d99f;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* Tout est en rem, et le rem suit la taille de la fenêtre : la page s'adapte à n'importe quelle taille de source navigateur OBS. */
+        html {
+            font-size: min(2.6vh, 2.2vw);
+            background: transparent;
+        }
+
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            background: transparent;
+            color: var(--text);
+            font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+        }
+
+        .board {
+            height: 100%;
+            padding: 0.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        header {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.4rem 1rem;
+            background: var(--panel);
+            border-radius: 0.6rem;
+            border-left: 0.3rem solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        header small {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+        }
+
+        #list {
+            list-style: none;
+            flex: 1 1 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .row {
+            flex: 1 1 0;
+            max-height: 5.5rem;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: 2.8rem 3.4rem minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 0 1.1rem 0 0.8rem;
+            background: var(--panel);
+            border-radius: 0.6rem;
+            border-left: 0.3rem solid rgba(255, 255, 255, 0.18);
+        }
+
+        .row.top-1 { border-left-color: #f9d464; background: linear-gradient(90deg, rgba(249, 212, 100, 0.22), var(--panel) 45%); }
+        .row.top-2 { border-left-color: #d8e2f0; }
+        .row.top-3 { border-left-color: #e3a56a; }
+
+        .rank {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .top-1 .rank { color: #f9d464; }
+        .top-2 .rank { color: #d8e2f0; }
+        .top-3 .rank { color: #e3a56a; }
+
+        .logo {
+            width: 3.4rem;
+            height: 3.4rem;
+            border-radius: 0.6rem;
+            background: var(--panel-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo img { width: 100%; height: 100%; object-fit: contain; }
+
+        .logo-fallback {
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .info { min-width: 0; }
+
+        .team {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .members {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .points {
+            text-align: right;
+            font-size: 1.9rem;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+        }
+
+        .points small {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <header><span>Classement général</span><small>TSLAN 2k26</small></header>
+        <ol id="list"></ol>
+    </div>
+
+    <script src="/js/obs-common.js"></script>
+    <script>
+        const list = document.getElementById("list");
+
+        OBSRanking.start((rows, state) => {
+            OBSRanking.mount(list, rows, {
+                create(row) {
+                    const li = document.createElement("li");
+                    li.className = "row";
+                    li.innerHTML = `
+                        <span class="rank"></span>
+                        <span class="logo-slot"></span>
+                        <div class="info"><div class="team"></div><div class="members"></div></div>
+                        <div class="points"><span class="pts-value" data-value=""></span><small>PTS</small></div>`;
+                    li.querySelector(".logo-slot").replaceWith(OBSRanking.makeLogo(row.team));
+                    return li;
+                },
+                update(el, row, i) {
+                    el.classList.remove("top-1", "top-2", "top-3");
+                    if (i < 3) el.classList.add(`top-${i + 1}`);
+                    el.querySelector(".rank").textContent = row.rank;
+                    el.querySelector(".team").textContent = row.team;
+                    el.querySelector(".members").textContent = row.players.join("  •  ");
+                    OBSRanking.animateNumber(el.querySelector(".pts-value"), row.pointsValue, row.points);
+                },
+                enter(el) {
+                    el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
+                },
+            }, state);
+        });
+    </script>
+</body>
+</html>
+</file>
+
+<file path="public/obs-classement.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Overlay classement (classique)</title>
+    <style>
+        :root {
+            --panel: rgba(8, 12, 24, 0.78);
+            --panel-strong: rgba(255, 255, 255, 0.08);
+            --text: #f2f6ff;
+            --muted: #a9b8d0;
+            --accent: #39d99f;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* Tout est en rem, et le rem suit la taille de la fenêtre : la page s'adapte à n'importe quelle taille de source navigateur OBS. */
+        /*
+         * Format natif de l'overlay OBS : 429 × 879 px.
+         * Le contenu est dimensionné par rapport à cette base, indépendamment
+         * de la taille de la fenêtre d'aperçu dans OBS.
+         */
+        html {
+            width: 429px;
+            height: 879px;
+            font-size: 14px;
+            background: transparent;
+        }
+
+        body {
+            width: 429px;
+            height: 879px;
+            overflow: hidden;
+        }
+
+        body {
+            background: transparent;
+            color: var(--text);
+            font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+        }
+
+        .board {
+            width: 429px;
+            height: 879px;
+            padding: 0.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        header {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.4rem 1rem;
+            background: var(--panel);
+            border-radius: 0.6rem;
+            border-left: 0.3rem solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        header small {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+        }
+
+        #list {
+            list-style: none;
+            flex: 1 1 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .row {
+            flex: 1 1 0;
+            max-height: 5.5rem;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: 2.8rem 3.4rem minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 0 1.1rem 0 0.8rem;
+            background: var(--panel);
+            border-radius: 0.6rem;
+            border-left: 0.3rem solid rgba(255, 255, 255, 0.18);
+        }
+
+        .row.top-1 { border-left-color: #f9d464; background: linear-gradient(90deg, rgba(249, 212, 100, 0.22), var(--panel) 45%); }
+        .row.top-2 { border-left-color: #d8e2f0; }
+        .row.top-3 { border-left-color: #e3a56a; }
+
+        .rank {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .top-1 .rank { color: #f9d464; }
+        .top-2 .rank { color: #d8e2f0; }
+        .top-3 .rank { color: #e3a56a; }
+
+        .logo {
+            width: 3.4rem;
+            height: 3.4rem;
+            border-radius: 0.6rem;
+            background: var(--panel-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo img { width: 100%; height: 100%; object-fit: contain; }
+
+        .logo-fallback {
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .info { min-width: 0; }
+
+        .team {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .members {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .points {
+            text-align: right;
+            font-size: 1.9rem;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+        }
+
+        .points small {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <header><span>Classement général</span><small>TSLAN 2k26</small></header>
+        <ol id="list"></ol>
+    </div>
+
+    <script src="/js/obs-common.js"></script>
+    <script>
+        const list = document.getElementById("list");
+
+        OBSRanking.start((rows, state) => {
+            OBSRanking.mount(list, rows, {
+                create(row) {
+                    const li = document.createElement("li");
+                    li.className = "row";
+                    li.innerHTML = `
+                        <span class="rank"></span>
+                        <span class="logo-slot"></span>
+                        <div class="info"><div class="team"></div><div class="members"></div></div>
+                        <div class="points"><span class="pts-value" data-value=""></span><small>PTS</small></div>`;
+                    li.querySelector(".logo-slot").replaceWith(OBSRanking.makeLogo(row.team));
+                    return li;
+                },
+                update(el, row, i) {
+                    el.classList.remove("top-1", "top-2", "top-3");
+                    if (i < 3) el.classList.add(`top-${i + 1}`);
+                    el.querySelector(".rank").textContent = row.rank;
+                    el.querySelector(".team").textContent = row.team;
+                    el.querySelector(".members").textContent = row.players.join("  •  ");
+                    OBSRanking.animateNumber(el.querySelector(".pts-value"), row.pointsValue, row.points);
+                },
+                enter(el) {
+                    el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
+                },
+            }, state);
+        });
+    </script>
+</body>
+</html>
+</file>
+
+<file path="public/css/archives.css">
+:root {
+    --bg: #060915;
+    --surface: rgba(10, 16, 29, 0.88);
+    --surface-soft: rgba(13, 18, 35, 0.92);
+    --text: #e9eef7;
+    --muted: #9cb2cf;
+    --accent: #39d99f;
+    --accent-soft: rgba(57, 217, 159, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    background: transparent;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+main#content {
+    max-width: 1080px;
+    margin: 2.5rem auto 4rem;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+nav {
+    background: rgba(2, 8, 18, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.archive-main-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    padding-bottom: 0.9rem;
+}
+
+.accordion {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.accordion-item {
+    background: rgba(10, 16, 29, 0.589);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.accordion-header:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.arrow {
+    font-size: 0.95rem;
+    transition: transform 0.35s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 2600px;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+.content-inner {
+    padding: 1.5rem 1.5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.content-inner p,
+.content-inner li {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.content-inner ul {
+    margin: 1rem 0 1.3rem 1.4rem;
+    list-style: disc inside;
+}
+
+.content-inner strong {
+    color: #ffffff;
+}
+
+.video-container-archive {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.2);
+}
+
+.video-container-archive iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.15rem;
+    justify-content: center;
+}
+
+.selector-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    padding: 0.9rem 1.05rem;
+    border-radius: 8px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.selector-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.selector-btn.active {
+    background: var(--accent);
+    color: #041112;
+    border-color: var(--accent);
+}
+
+.selector-btn.active strong {
+    color: #041112;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.75rem 0;
+}
+
+.info-item {
+    background: rgba(12, 16, 30, 0.73);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.highlight-green {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.leaderboard-section h3 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.leaderboard-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+}
+
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 0.75rem;
+    padding-bottom: 0.25rem;
+}
+
+.table-scroll::-webkit-scrollbar {
+    height: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 1rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.leaderboard-table thead th {
+    color: #ffffff;
+}
+
+.rank-1 {
+    color: #f9d464;
+    background: rgba(255, 215, 0, 0.08);
+}
+
+.games-grid-archive {
+    display: grid;
+    cursor: pointer;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.games-grid-archive img {
+    width: 100%;
+    border-radius: 16px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.games-grid-archive img:hover {
+    transform: scale(1.07);
+}
+
+@media (max-width: 860px) {
+    main#content {
+        margin: 1.8rem auto 3rem;
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .video-selector {
+        justify-content: stretch;
+    }
+
+    .video-selector .selector-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
+</file>
+
+<file path="public/css/index.css">
+.video-container {
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border-radius: 22px;
+    margin-top: 1.5rem;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.video-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.buttons-flex {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+</file>
+
+<file path="public/css/jeux.css">
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    aspect-ratio: 1;
+}
+
+.card-video,
+.card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-video {
+    z-index: 1;
+}
+
+.card-img {
+    z-index: 2;
+    transition: clip-path 0.7s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.7s ease;
+    clip-path: polygon(0% 0%, 50% -50%, 150% 50%, 100% 105%, 0% 105%);
+}
+
+.card.is-hovered .card-img {
+    opacity: 0.8;
+    clip-path: polygon(0% 0%, -50% 50%, 50% 150%, 100% 105%, 0% 105%);
+}
+
+.card-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.card-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.4) 45%, rgba(255, 255, 255, 0.1) 48%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 55%);
+    transform: translateY(-100%);
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card.is-hovered .card-shine::after {
+    transform: translateY(100%);
+}
+
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+</file>
+
+<file path="public/css/public.css">
+.event-gallery {
+    position: relative;
+    margin: 2rem auto 0;
+    max-width: 720px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #080d18;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+}
+
+.event-gallery-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.event-gallery-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+}
+
+.event-gallery-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-gallery-control {
+    position: absolute;
+    top: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(8, 13, 24, 0.72);
+    color: #ffffff;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.event-gallery-control:hover,
+.event-gallery-control:focus-visible {
+    background: var(--accent);
+    color: #07131a;
+}
+
+.event-gallery-control:focus-visible,
+.event-gallery-dot:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.event-gallery-prev {
+    left: 1rem;
+}
+
+.event-gallery-next {
+    right: 1rem;
+}
+
+.event-gallery-dots {
+    position: absolute;
+    right: 0;
+    bottom: 0.8rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.event-gallery-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    padding: 0;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.event-gallery-dot.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.collapsible-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.collapsible-card summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.35rem 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 700;
+    list-style: none;
+}
+
+.collapsible-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.collapsible-card summary::after {
+    color: var(--accent);
+    content: '+';
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.collapsible-card[open] summary {
+    border-bottom: 1px solid var(--border);
+}
+
+.collapsible-card[open] summary::after {
+    content: '\2212';
+}
+
+.collapsible-card summary:hover,
+.collapsible-card summary:focus-visible {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.collapsible-card summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+.collapsible-card-content {
+    padding: 0 2rem 2rem;
+}
+
+@media (max-width: 480px) {
+    .event-gallery-control {
+        width: 2.15rem;
+        height: 2.15rem;
+    }
+
+    .event-gallery-prev {
+        left: 0.65rem;
+    }
+
+    .event-gallery-next {
+        right: 0.65rem;
+    }
+
+    .collapsible-card summary {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.05rem;
+    }
+
+    .collapsible-card-content {
+        padding: 0 1.5rem 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .event-gallery-track {
+        transition: none;
+    }
+}
+</file>
+
+<file path="public/js/archives.js">
+function toggleAccordion(header) {
+    const item = header.parentElement;
+
+    item.classList.toggle('active');
+}
+
+
+function changeVideo(url, btn) {
+    document.getElementById('video-player-2k25').src = url;
+
+    const buttons = btn.parentElement.querySelectorAll('.selector-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
+
+function jumpToVideo(baseUrl, seconds, buttonIndex) {
+    const player = document.getElementById('video-player-2k25');
+    const videoSection = document.querySelector('.video-section');
+
+    const newUrl = `${baseUrl}?start=${seconds}&autoplay=1`;
+    player.src = newUrl;
+
+    videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const buttons = document.querySelectorAll('.selector-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    if(buttons[buttonIndex]) {
+        buttons[buttonIndex].classList.add('active');
+    }
+}
+</file>
+
+<file path="public/js/index.js">
+
+</file>
+
+<file path="public/js/jeux.js">
+document.querySelectorAll('.card').forEach(card => {
+  const video = card.querySelector('.card-video');
+
+  card.addEventListener('mouseenter', () => {
+    card.classList.add('is-hovered');
+    
+    video.currentTime = 0;
+    video.play().catch(error => {
+    });
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.classList.remove('is-hovered');
+    
+    setTimeout(() => {
+      if (!card.classList.contains('is-hovered')) {
+        video.pause();
+      }
+    }, 700);
+  });
+});
+</file>
+
+<file path="public/js/participation.js">
+console.log("heu bonsoir ? ")
+const addressEl = document.getElementById('eventAddress');
+const toast = document.getElementById('copyToast');
+const cursorTooltip = document.getElementById('cursorTooltip');
+
+addressEl.addEventListener('mouseenter', () => {
+cursorTooltip.classList.add('show');
+});
+
+addressEl.addEventListener('mousemove', (e) => {
+cursorTooltip.style.left = e.clientX + 'px';
+cursorTooltip.style.top = e.clientY + 'px';
+});
+
+addressEl.addEventListener('mouseleave', () => {
+cursorTooltip.classList.remove('show');
+});
+
+addressEl.addEventListener('click', copyAddress);
+addressEl.addEventListener('keydown', (e) => {
+if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    copyAddress();
+}
+});
+
+function copyAddress() {
+const text = addressEl.textContent.trim();
+navigator.clipboard.writeText(text).then(() => {
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+}).catch(() => {
+    toast.textContent = "Impossible de copier";
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+});
+}
+</file>
+
+<file path="public/js/public.js">
+const gallery = document.querySelector('.event-gallery');
+
+if (gallery) {
+    const track = gallery.querySelector('.event-gallery-track');
+    const slides = gallery.querySelectorAll('.event-gallery-slide');
+    const dots = gallery.querySelectorAll('.event-gallery-dot');
+    const previousButton = gallery.querySelector('.event-gallery-prev');
+    const nextButton = gallery.querySelector('.event-gallery-next');
+    let currentIndex = 0;
+    let autoplay;
+
+    function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, dotIndex) => {
+            const isActive = dotIndex === currentIndex;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-selected', isActive);
+        });
+    }
+
+    function startAutoplay() {
+        clearInterval(autoplay);
+        autoplay = setInterval(() => showSlide(currentIndex + 1), 5000);
+    }
+
+    previousButton.addEventListener('click', () => {
+        showSlide(currentIndex - 1);
+        startAutoplay();
+    });
+
+    nextButton.addEventListener('click', () => {
+        showSlide(currentIndex + 1);
+        startAutoplay();
+    });
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            showSlide(dotIndex);
+            startAutoplay();
+        });
+    });
+
+    gallery.addEventListener('mouseenter', () => clearInterval(autoplay));
+    gallery.addEventListener('mouseleave', startAutoplay);
+    gallery.addEventListener('focusin', () => clearInterval(autoplay));
+    gallery.addEventListener('focusout', startAutoplay);
+
+    showSlide(0);
+    startAutoplay();
+}
+</file>
+
+<file path="public/js/ticket-button.js">
+const ticketButtons = document.querySelectorAll('.ticket-button');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (!reducedMotion.matches) {
+    ticketButtons.forEach((button) => {
+        button.addEventListener('pointermove', (event) => {
+            if (event.pointerType !== 'mouse') {
+                return;
+            }
+
+            const bounds = button.getBoundingClientRect();
+            const horizontalPosition = (event.clientX - bounds.left) / bounds.width;
+            const verticalPosition = (event.clientY - bounds.top) / bounds.height;
+            const rotateY = (horizontalPosition - 0.5) * 8;
+            const rotateX = (0.5 - verticalPosition) * 8;
+
+            button.style.setProperty('--ticket-rotate-x', `${rotateX}deg`);
+            button.style.setProperty('--ticket-rotate-y', `${rotateY}deg`);
+        });
+
+        button.addEventListener('pointerleave', () => {
+            button.style.setProperty('--ticket-rotate-x', '0deg');
+            button.style.setProperty('--ticket-rotate-y', '0deg');
+        });
+    });
+}
+</file>
+
+<file path=".gitignore">
+.idea
+.vscode
+.env
+node_modules
+photoshop
+credentials
+</file>
+
+<file path="LICENSE">
+Copyright (c) 2026 Association Games On The Stage (GOTS) & Mathieu AVERSENC-BOUISSIERE.
+Tous droits réservés.
+
+Le code source est rendu public à des fins de consultation et de démonstration uniquement.
+Toute reproduction, modification ou redistribution sans autorisation écrite préalable 
+de l'association GOTS est strictement interdite.
+</file>
+
+<file path="package.json">
+{
+  "name": "tslan_web_site",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathieu-ab/TSLAN_web_site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathieu-ab/TSLAN_web_site/issues"
+  },
+  "homepage": "https://github.com/mathieu-ab/TSLAN_web_site#readme",
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "express": "^4.21.2",
+    "googleapis": "^182.0.0",
+    "node-fetch": "^2.7.0",
+    "path": "^0.12.7"
+  }
+}
+</file>
+
+<file path="public/css/planning.css">
+.schedule-notice {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.schedule-notice strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.schedule-notice ul {
+    margin: 0 0 0 1.1rem;
+    list-style: disc;
+}
+
+.schedule-notice li {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 0.35rem;
+}
+
+.schedule-notice li:last-child {
+    margin-bottom: 0;
+}
+
+.schedule-grid {
+    display: flex;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.schedule-day {
+    display: flex;
+    flex: 1 1 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.schedule-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.55rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    word-break: break-word;
+}
+
+.schedule-table thead th {
+    font-weight: 700;
+}
+
+.day-header th {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    padding: 0.75rem 0.5rem;
+    color: #ffffff;
+}
+
+.day-friday { background: #4a5973; }
+.day-saturday { background: #b68ce2; }
+.day-sunday { background: #e57373; }
+
+.col-header th {
+    background: rgba(255, 255, 255, 0.85);
+    color: #111827;
+    font-size: 0.8rem;
+}
+
+.schedule-table td:first-child {
+    width: 32%;
+    font-weight: 600;
+    color: #0d1117;
+}
+
+.row-setup td { background: #b9c2d0; color: #111827; }
+.row-start td { background: #f6de6b; color: #111827; }
+.row-open td { background: #7ea8e0; color: #111827; }
+.row-game td { background: #c3d6f2; color: #111827; }
+.row-meal td { background: #e08a68; color: #111827; }
+.row-end td { background: #a8dba0; color: #111827; }
+
+.schedule-table td:not(:first-child) {
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.45rem 0.35rem;
+        font-size: 0.78rem;
+    }
+
+    .day-header th {
+        font-size: 0.95rem;
+    }
+}
+</file>
+
+<file path="README.md">
+# 🌐 TSLAN.fr
+
+[![Site Officiel](https://img.shields.io/badge/Site\_Officiel-tslan.fr-blue?style=for-the-badge)](https://tslan.fr)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+> Plateforme web officielle de la **TSLAN**, événement gaming organisé par l'association **GOTS** (Games On The Stage).
+
+---
+
+## Fonctionnalités
+
+-  **Gestion des événements :** Actualités de l'événement, redirections d'inscriptions, planning, informations sur les tournois et archives.
+- **Performance & SEO :** Interface fluide et optimisée pour le référencement naturel.
+- **Responsive Design :** Ergonomie adaptée à tous les types d'écrans (Desktop, Tablette, Mobile).
+
+---
+
+## Stack Technique
+
+- **Frontend :** HTML5, CSS3, JavaScript
+- **Backend :** Node.js
+- **Hébergement :** Auto-hébergé sur serveur personnel, sécurisé et accessible via le réseau Cloudflare
+
+
+
+## Note sur la propriété intellectuelle :
+
+- Le code source est sous licence MIT.
+- La marque TSLAN et l'identité visuelle de l'association restent la propriété exclusive de GOTS.
+- Les illustrations et logos de jeux vidéo restent la propriété exclusive de leurs éditeurs respectifs et sont utilisés à des fins d'illustration événementielle.
+
+## Auteur
+
+* **Mathieu AVERSENC-BOUISSIERE**
+
+  * GitHub : [@mathieu-ab](https://github.com/mathieu-ab)
+  * LinkedIn : [Mathieu Aversenc-Bouissiere](https://www.linkedin.com/in/mathieu-aversenc-bouissiere-53724b265/)
+</file>
+
+<file path="server.js">
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import { google } from 'googleapis';
+import 'dotenv/config';
+
+const app = express();
+const PORT = 5500;
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
+const auth = new google.auth.GoogleAuth({
+    keyFile: path.join(
+        __dirname,
+        "credentials",
+        "tslan-454820-7d72796dd3df.json"
+    ),
+    scopes: [
+        "https://www.googleapis.com/auth/spreadsheets.readonly"
+    ]
+});
+
+const sheets = google.sheets({
+    version: "v4",
+    auth
+});
+
+
+
+
+
+
+
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get("/archives", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "archives.html"));
+});
+
+app.get("/jeux", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "jeux.html"));
+});
+
+app.get("/classement", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "classement.html"));
+});
+
+app.get("/participation", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "participation.html"));
+});
+
+app.get("/public", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "public.html"));
+});
+
+app.get("/planning", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "planning.html"));
+});
+
+app.get("/obs", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "obs-classement.html"));
+});
+
+app.get("/obs-wow", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "obs-classement-gaming.html"));
+});
+
+app.get("/mentions-legales", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "mentions-legales.html"));
+});
+
+
+const sheetsConfig = {
+    "Général": {
+        data: "Général!B26:I41"
+    },
+
+    "Joueur Equipe": {
+        data: "'Data'!B4:D19"
+    },
+
+    "LeagueofLegends": {
+        data: "LeagueofLegends!I4:J19",
+        validation: "LeagueofLegends!L8:N9"
+    },
+
+    "Minecraft UHC Sphères": {
+        data: "'Minecraft UHC Sphères'!D4:E19",
+        validation: "'Minecraft UHC Sphères'!G8:I9"
+    },
+
+    "CounterStrike2": {
+        data: "CounterStrike2!J4:K19",
+        validation: "CounterStrike2!M8:O9"
+    },
+
+    "Gang Beasts": {
+        data: "'Gang Beasts'!J4:K19",
+        validation: "'Gang Beasts'!M8:O9"
+    },
+
+    "Just Dance": {
+        data: "'Just Dance'!H4:I19",
+        validation: "'Just Dance'!K8:M9"
+    },
+
+    "Left4Dead 2": {
+        data: "'Left4Dead 2'!D4:E19",
+        validation: "'Left4Dead 2'!G8:I9"
+    },
+
+    "Trackmania": {
+        data: "Trackmania!F4:G19",
+        validation: "Trackmania!I8:K9"
+    },
+
+    "Hollow Knight Silksong": {
+        data: "'Hollow Knight Silksong'!B28:C43",
+        validation: "'Hollow Knight Silksong'!E32:G33"
+    },
+
+    "The Finals": {
+        data: "'The Finals'!N4:O19",
+        validation: "'The Finals'!Q8:S9"
+    },
+
+    "Rocket League": {
+        data: "'Rocket League'!O4:P19",
+        validation: "'Rocket League'!R8:T9"
+    },
+
+    "Jeu mystère": {
+        data: "'Jeu mystère'!F4:G19",
+        validation: "'Jeu mystère'!I8:K9"
+    },
+
+    "Quiz": {
+        data: "Quiz!AX4:AY19",
+        validation: "Quiz!BA8:BC9"
+    }
+};
+
+// --- Cache serveur pour /api/data ---
+// Objectif : éviter qu'un pic de visiteurs (page /classement rafraîchie en
+// continu pendant l'event) ne déclenche un appel à l'API Google Sheets par
+// client. Un seul appel réel à Google est fait, au maximum une fois toutes
+// les CACHE_TTL_MS millisecondes, peu importe le nombre de clients :
+//  - 1er appel (ou 1er appel après expiration du cache) -> on interroge
+//    Google Sheets et on met à jour le cache.
+//  - tout appel suivant dans les CACHE_TTL_MS -> on sert directement le
+//    cache sans requête à Google.
+const CACHE_TTL_MS = 10000;
+
+// Anti-abus pour le bypass manuel (bouton "actualiser" côté client) :
+// même avec ?force=1, impossible de déclencher un appel réel à Google Sheets
+// plus d'une fois toutes les FORCE_MIN_INTERVAL_MS, tous clients confondus.
+const FORCE_MIN_INTERVAL_MS = 5000;
+
+let cachedData = null;
+let cacheTimestamp = 0;
+let lastForcedTimestamp = 0;
+let pendingFetch = null; // évite les appels concurrents si plusieurs requêtes arrivent pile au même moment
+
+// Toutes les plages (data + validation, ~24 au total) sont regroupées dans
+// UN seul appel batchGet plutôt qu'un values.get par plage. Cela évite de
+// cramer le quota "Read requests per minute" de l'API Sheets : batchGet ne
+// compte que pour 1 requête, quel que soit le nombre de plages demandées.
+async function fetchSheetsData() {
+    const entries = Object.entries(sheetsConfig);
+
+    // On construit la liste des plages à demander, en gardant la trace de
+    // quel onglet + quel type (data/validation) correspond à quel index,
+    // pour pouvoir reconstituer la même structure qu'avant après coup.
+    const ranges = [];
+    const rangeMeta = [];
+
+    for (const [pageName, config] of entries) {
+        ranges.push(config.data);
+        rangeMeta.push({ pageName, type: "data" });
+
+        if (config.validation) {
+            ranges.push(config.validation);
+            rangeMeta.push({ pageName, type: "validation" });
+        }
+    }
+
+    const response = await sheets.spreadsheets.values.batchGet({
+        spreadsheetId: process.env.API_SHEET_KEY,
+        ranges
+    });
+
+    const valueRanges = response.data.valueRanges || [];
+    const results = {};
+
+    rangeMeta.forEach((meta, index) => {
+        const values = valueRanges[index]?.values || [];
+
+        if (!results[meta.pageName]) {
+            results[meta.pageName] = { data: [] };
+        }
+
+        if (meta.type === "data") {
+            results[meta.pageName].data = values;
+        } else {
+            results[meta.pageName].validation = values?.[0]?.[0] ?? null;
+        }
+    });
+
+    return results;
+}
+
+async function getSheetsData({ force = false } = {}) {
+    const now = Date.now();
+    const cacheIsFresh = cachedData && (now - cacheTimestamp) < CACHE_TTL_MS;
+    const canForce = force && (now - lastForcedTimestamp) >= FORCE_MIN_INTERVAL_MS;
+
+    if (cacheIsFresh && !canForce) {
+        return cachedData;
+    }
+
+    // Si une mise à jour est déjà en cours (plusieurs clients arrivent en
+    // même temps juste après expiration du cache, ou plusieurs personnes
+    // cliquent "actualiser" en même temps), on attend son résultat au lieu
+    // de déclencher un 2e appel à Google Sheets en parallèle.
+    if (pendingFetch) {
+        return pendingFetch;
+    }
+
+    if (canForce) {
+        lastForcedTimestamp = now;
+    }
+
+    pendingFetch = fetchSheetsData()
+        .then((data) => {
+            cachedData = data;
+            cacheTimestamp = Date.now();
+            return cachedData;
+        })
+        .finally(() => {
+            pendingFetch = null;
+        });
+
+    try {
+        return await pendingFetch;
+    } catch (error) {
+        // En cas d'erreur, si on a une version en cache même périmée, on la
+        // sert plutôt que de casser l'affichage du classement en plein event.
+        if (cachedData) {
+            console.error("Erreur Google Sheet, on sert le cache existant :", error);
+            return cachedData;
+        }
+        throw error;
+    }
+}
+
+app.get("/api/data", async (req, res) => {
+    try {
+        const force = req.query.force === "1" || req.query.force === "true";
+        const data = await getSheetsData({ force });
+        res.json(data);
+    } catch (error) {
+
+        console.error("Erreur Google Sheet :", error);
+
+        res.status(500).json({
+            error: "Impossible de récupérer les données."
+        });
+    }
+});
+
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+});
+</file>
+
+<file path="public/public.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Public</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/public.css">
+    <script src="/js/public.js" defer></script>
+    <script src="/js/ticket-button.js" defer></script>
+    <link rel="canonical" href="https://tslan.fr/public" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a class="active" href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="hero-panel">
+            <div class="hero-card">
+                <h1>Info au public</h1>
+                <p class="page-intro">
+                    Vous souhaitez assister à la TSLAN 2k26 en tant que spectateur ? Voici les horaires, tarifs et règles à connaître avant de venir.
+                </p>
+
+                <div class="content-card">
+
+                    <h2>Horaires</h2>
+                    <ul>
+                        <li>Évènement les <strong>24 et 25 octobre 2026</strong>, de 10h à 23h</li>
+                        <li>Espaces accessibles au public de <strong>9h45 à 23h15</strong></li>
+                        <li>Buvette et restauration accessibles au public de <strong>10h à 23h</strong></li>
+                    </ul>
+
+                    <h2>Tarifs</h2>
+                    <ul>
+                        <li><strong>6 €</strong> / place journée</li>
+                        <li><strong>10 €</strong> / pass weekend</li>
+                    </ul>
+
+                    <h2>Lieu</h2>
+                    <p>
+                        L'évènement se passe à l'Art-en-Seine de Bar-sur-Seine. Adresse :
+                        <span class="copy-address" id="eventAddress" tabindex="0" role="button" aria-label="Copier l'adresse">
+                            19 Bis Av. du Professeur Paul Portier, 10110 Bar-sur-Seine
+                        </span>.
+                    </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=19+Bis+Av.+du+Professeur+Paul+Portier%2C+10110+Bar-sur-Seine" target="_blank" rel="noopener">
+                            <img src="/images/art-en-seine.png" alt="Art-en-Seine, Bar-sur-Seine" class="venue-thumb">
+                        </a>
+
+                    <h2>TSLAN 2k25 en image</h2>
+                    <div class="event-gallery" aria-label="Photos de l'événement TSLAN">
+                        <div class="event-gallery-track">
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image0.webp" alt="Ambiance de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image1.webp" alt="La scène de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image2.webp" alt="Le public de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image3.webp" alt="Un moment de compétition à la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image4.webp" alt="Les participants de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image5.webp" alt="Une animation de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image6.webp" alt="L'ambiance de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image7.webp" alt="Une partie de jeu à la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image8.webp" alt="La salle de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image9.webp" alt="Un temps fort de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image10.webp" alt="Les joueurs de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image11.webp" alt="La scène pendant la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image12.webp" alt="Le public pendant la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image13.webp" alt="Un souvenir de la TSLAN 2k25" loading="lazy">
+                            </figure>
+                            <figure class="event-gallery-slide">
+                                <img src="/images/2025_event_image/image14.webp" alt="La TSLAN 2k25 sur scène" loading="lazy">
+                            </figure>
+                        </div>
+                        <button class="event-gallery-control event-gallery-prev" type="button" aria-label="Image précédente">&#10094;</button>
+                        <button class="event-gallery-control event-gallery-next" type="button" aria-label="Image suivante">&#10095;</button>
+                        <div class="event-gallery-dots" role="tablist" aria-label="Sélectionner une photo">
+                            <button type="button" class="event-gallery-dot is-active" aria-label="Afficher l'image 1" aria-selected="true"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 2" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 3" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 4" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 5" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 6" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 7" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 8" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 9" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 10" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 11" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 12" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 13" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 14" aria-selected="false"></button>
+                            <button type="button" class="event-gallery-dot" aria-label="Afficher l'image 15" aria-selected="false"></button>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <details class="content-card collapsible-card">
+                    <summary>Droit à l'image, diffusion et règlement</summary>
+                    <div class="collapsible-card-content">
+                    </br>
+                    <p>
+                        La TSLAN 2k26 est un événement filmé dans son intégralité et diffusé en direct sur la chaîne <strong>Teoad Show</strong> sur Twitch.tv. Les vidéos issues de cette diffusion (rediffusions, extraits) sont ensuite republiées sur la chaîne YouTube Teoad Show, ainsi que potentiellement sur nos réseaux (Instagram, TikTok) à des fins de communication autour de l'événement.
+                    </p>
+                    <p>
+                        En achetant un billet et en assistant à l'événement, vous reconnaissez avoir été informé de cette captation et acceptez d'apparaître, ponctuellement, dans les prises de vues générales de la salle et du public.
+                    </p>
+                    <p>
+                        Il est possible qu'à certains moments de l'événement, l'organisation invite des membres du public à monter sur scène, sur la base du volontariat uniquement. Si vous acceptez cette invitation, vous consentez à être filmé de face et en gros plan, et à ce que votre image et votre voix (si un micro est utilisé) soient diffusées en direct sur Twitch et republiées ultérieurement sur les plateformes citées ci-dessus. Pour les mineurs, cette invitation ne sera proposée qu'en présence et avec l'accord d'un représentant légal.
+                    </p>
+                    <p>
+                        Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'opposition concernant votre image. Pour toute demande (floutage, retrait d'une séquence, question), contactez-nous à <a href="mailto:gamesonthestage@gmail.com">gamesonthestage@gmail.com</a>.
+                    </p>
+
+                    <h2>Règlement</h2>
+                    <p>
+                        Afin que l'événement se déroule dans les meilleures conditions pour tous, participants, public et staff, les règles suivantes s'appliquent.
+                    </p>
+
+                    <h3>Comportement</h3>
+                    <p>
+                        Tout comportement irrespectueux, harcelant, discriminatoire (racisme, sexisme, homophobie, etc.) ou violent, verbal ou physique, envers un participant, un membre du staff ou un autre membre du public, entraînera une exclusion immédiate, sans remboursement.
+                    </p>
+                    <p>
+                        Si vous êtes témoin ou victime d'un comportement de ce type, n'hésitez pas à solliciter un membre du staff (badge rouge, orange ou jaune).
+                    </p>
+
+                    <h3>Accès et sécurité</h3>
+                    <ul>
+                        <li>L'événement est accessible à tous. Il est cependant vivement recommandé que les enfants de moins de 14 ans soient accompagnés d'un adulte.</li>
+                        <li>Les sacs sont contrôlés visuellement à votre arrivée par des membres ou bénévoles de l'association, sans contact avec vos affaires. Si vous refusez ce contrôle, l'entrée à l'événement vous sera refusée.</li>
+                        <li>Objets interdits à l'entrée : armes, objets tranchants ou contondants, contenants en verre, objets à potentiel de perturbation sonore, alcool extérieur.</li>
+                        <li>Si vous êtes en possession de l'un de ces objets à votre arrivée, merci de le signaler à l'organisation, qui le placera sous consigne ; vous pourrez le récupérer à votre départ.</li>
+                        <li>Le port du bracelet remis avant votre entrée dans la salle est obligatoire pour toute la durée de votre présence sur l'événement.</li>
+                        <li>La consommation de nourriture ou de boissons dans la salle est interdite.</li>
+                    </ul>
+
+                    <h3>Buvette et alcool</h3>
+                    <ul>
+                        <li>La vente d'alcool par la buvette est réservée aux personnes majeures (un justificatif d'identité peut être demandé).</li>
+                        <li>Le staff se réserve le droit de refuser de servir toute personne en état d'ébriété manifeste.</li>
+                        <li>Merci de jeter vos déchets dans les contenants prévus à cet effet.</li>
+                    </ul>
+                    </div>
+                </details>
+
+                <div class="hero-buttons">
+                    <a class="ticket-button" href="https://www.helloasso.com/associations/games-on-the-stage/evenements/billetterie-public-tslan2k26" target="_blank" rel="noopener">Acheter ma place</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+</body>
+</html>
+</file>
+
+<file path="public/css/main.css">
+:root {
+    --bg: #060915;
+    --surface: rgba(12, 16, 30, 0.88);
+    --surface-strong: rgba(20, 27, 44, 0.96);
+    --text: #eff3f8;
+    --muted: #aab6cf;
+    --accent: #39d99f;
+    --accent-soft: rgba(57, 217, 159, 0.14);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top center, rgba(57, 217, 159, 0.08), transparent 24%),
+        linear-gradient(180deg, #081222 0%, #04050b 70%, #030306 100%);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.7;
+}
+
+img,
+iframe,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+a:hover {
+    color: #80eac9;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(2, 8, 18, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+}
+
+.nav-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-brand img {
+    width: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text);
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+    background: rgba(77, 226, 171, 0.472);
+}
+
+main {
+    max-width: 1080px;
+    width: min(100% - 2rem, 1080px);
+    margin: 2.5rem auto 3rem;
+    padding: 0;
+}
+
+.page-title {
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #ffffff;
+}
+
+.page-intro {
+    max-width: 760px;
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+}
+
+.content-card {
+    background: rgba(10, 16, 29, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.content-card + .content-card {
+    margin-top: 1.5rem;
+}
+
+.content-card h1,
+.content-card h2,
+.content-card h3,
+.content-card h4 {
+    color: #ffffff;
+    margin-top: 1.8rem;
+    margin-bottom: 0.9rem;
+}
+
+.content-card p,
+.content-card li {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.content-card ul {
+    margin: 1rem 0 1.2rem 1.35rem;
+    list-style: disc inside;
+}
+
+.content-card code {
+    display: inline-block;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.086);
+    color: #ebfff7;
+    padding: 0.2rem 0.45rem;
+    border-radius: 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.hero-panel {
+    display: grid;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+.hero-panel > * {
+    min-width: 0;
+}
+
+.hero-card {
+    background: rgba(12, 16, 30, 0.589);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.32);
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.hero-card h1 {
+    text-align: center;
+    font-size: clamp(2.4rem, 7vw, 4.3rem);
+    margin-bottom: 1rem;
+    line-height: 1.05;
+}
+
+.hero-card p {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 155px;
+    padding: 0.95rem 1.2rem;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #071010;
+    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(57, 217, 159, 0.22);
+}
+
+.hero-buttons a.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+}
+
+.hero-buttons a:hover {
+    transform: translateY(-1px);
+}
+
+.hero-buttons a.ticket-button {
+    --ticket-rotate-x: 0deg;
+    --ticket-rotate-y: 0deg;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: min(100%, 560px);
+    min-height: 76px;
+    padding: 1.2rem 2rem;
+    border: 2px solid #b8ffe5;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #52edb2, #21c98e);
+    color: #04130f;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 16px 34px rgba(57, 217, 159, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    animation: ticket-button-glow 3s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s ease;
+}
+
+.hero-buttons a.ticket-button::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: -1;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+    content: "";
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+}
+
+.hero-buttons a.ticket-button:hover,
+.hero-buttons a.ticket-button:focus-visible {
+    transform: perspective(550px) translateY(-4px) rotateX(var(--ticket-rotate-x)) rotateY(var(--ticket-rotate-y)) scale(1.03);
+    filter: brightness(1.08);
+    box-shadow: 0 20px 42px rgba(57, 217, 159, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.hero-buttons a.ticket-button:hover::before,
+.hero-buttons a.ticket-button:focus-visible::before {
+    left: 135%;
+}
+
+.hero-buttons a.ticket-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+@keyframes ticket-button-glow {
+    0%,
+    100% {
+        box-shadow: 0 16px 34px rgba(57, 217, 159, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 18px 40px rgba(57, 217, 159, 0.48), 0 0 18px rgba(57, 217, 159, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-buttons a.ticket-button {
+        animation: none;
+        transition: none;
+    }
+
+    .hero-buttons a.ticket-button::before {
+        transition: none;
+    }
+}
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px);
+}
+
+.video-background .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.40);
+}
+
+footer {
+    max-width: 1080px;
+    width: min(100% - 2rem, 1080px);
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--accent);
+}
+
+@media (max-width: 820px) {
+    .nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    main {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 660px) {
+    main {
+        margin: 1.5rem auto 2rem;
+    }
+
+    .content-card {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .hero-panel {
+        gap: 1rem;
+    }
+
+    .hero-card {
+        padding: 1.4rem 1rem;
+        max-width: 100%;
+    }
+
+    .hero-card h1 {
+        font-size: clamp(2.1rem, 8vw, 3.4rem);
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    footer {
+        padding: 1rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        margin: 1rem auto 1.5rem;
+    }
+
+    .nav-inner {
+        padding: 0.85rem 1rem;
+    }
+
+    .footer-links {
+        gap: 0.5rem;
+    }
+
+    .hero-card {
+        padding: 1.1rem 0.95rem;
+    }
+
+    .hero-card h1 {
+        font-size: clamp(1.9rem, 10vw, 3rem);
+    }
+
+    .page-intro,
+    .hero-card p {
+        font-size: 0.98rem;
+    }
+}
+
+.copy-address {
+    cursor: pointer;
+    color: var(--accent);
+    border-bottom: 1px dashed var(--accent);
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.copy-address:hover,
+.copy-address:focus-visible {
+    color: #80eac9;
+}
+
+.cursor-tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--surface-strong);
+    color: var(--text);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    border: 1px solid var(--border);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -130%);
+    transition: opacity 0.15s ease;
+    z-index: 60;
+}
+
+.cursor-tooltip.show {
+    opacity: 1;
+}
+
+.copy-address:hover::after,
+.copy-address:focus-visible::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface-strong);
+    color: var(--accent);
+    font-weight: 700;
+    padding: 0.75rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 12px 24px rgba(57, 217, 159, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 999;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.venue-thumb {
+    display: inline-block;
+    width: 222px;
+    height: 222px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+}
+
+.venue-thumb:hover {
+    transform: scale(1.04);
+}
+</file>
+
+<file path="public/archives.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/archives.css">
+    <script src="/js/archives.js" defer></script>
+    <link rel="canonical" href="https://tslan.fr/archives" />
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a href="/classement">Classement</a></li>
+                <li><a class="active" href="/archives">Archives</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="video-background">
+    <video autoplay muted loop>
+        <source src="/videos/background.webm" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+</div>
+<main id="content">
+    <h1 style="text-align: center; font-size: 4.3rem;" class="archive-main-title">Archives TSLAN</h1>
+
+    <div class="accordion">
+        <div class="accordion-item active">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span>TSLAN 2k25</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="video-section">
+                        <div class="video-container-archive">
+                            <iframe id="video-player-2k25" src="https://www.youtube.com/embed/LrWvUYRvPP8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-selector">
+                            <button class="selector-btn active" onclick="changeVideo('https://www.youtube.com/embed/LrWvUYRvPP8', this)"><strong>Best-Of</strong> J1</button>
+                            <button class="selector-btn" onclick="changeVideo('https://www.youtube.com/embed/UsVRzdwrqQU', this)"><strong>Best-Of</strong> J2</button>
+                            <button class="selector-btn" onclick="changeVideo('https://www.youtube.com/embed/6ZBwJIiCgh8', this)"><strong>Court Métrage</strong></button>
+                        </div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>Format</h4>
+                            <p>Équipes de 2 joueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Cashprize</h4>
+                            <p class="highlight-green">300€ pour les vainqueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Dates</h4>
+                            <p>12 & 13 juillet 2025</p>
+                        </div>
+                    </div>
+                    <div class="leaderboard-section">
+                        <h3>Classement Final</h3>
+                        <div class="table-scroll">
+                            <table class="leaderboard-table">
+                                <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Équipe</th>
+                                    <th>Joueurs</th>
+                                    <th>Points</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <tr class="rank-1">
+                                <td>1er</td>
+                                <td><strong>Team Stade</strong></td>
+                                <td>Infornia, Varimatrax</td>
+                                <td>66</td>
+                            </tr>
+                            <tr>
+                                <td>2e</td>
+                                <td>Tableaux Généraux Basse Tension</td>
+                                <td>Azaaran, Mathkiler</td>
+                                <td>58</td>
+                            </tr>
+                            <tr>
+                                <td>3e</td>
+                                <td>Bober Bro</td>
+                                <td>Garscene, Reywrath</td>
+                                <td>49</td>
+                            </tr>
+                            <tr>
+                                <td>4e</td>
+                                <td>Graulapayng</td>
+                                <td>Azeohd, Gontran_Bonheur</td>
+                                <td>47</td>
+                            </tr>
+                            <tr>
+                                <td>5e</td>
+                                <td>Bro</td>
+                                <td>Bream, Orenfi</td>
+                                <td>41</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <h3>Jeux de l'édition</h3>
+                    <div class="games-grid-archive">
+                        <img src="/images/2025_jeux/brawlhalla.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 200, 0)" title="Brawlhalla">
+                        <img src="/images/2025_jeux/league_of_legends.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 974, 0)" title="League of Legends">
+                        <img src="/images/2025_jeux/bedwars.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 1592, 0)" title="Bedwars">
+                        <img src="/images/2025_jeux/codenames.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2097, 0)" title="Codenames">
+                        <img src="/images/2025_jeux/pubg.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2182, 0)" title="PUBG">
+                        <img src="/images/2025_jeux/quiz.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2901, 0)" title="Quiz">
+                        <img src="/images/2025_jeux/skribble.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 192, 1)" title="Skribble">
+                        <img src="/images/2025_jeux/star_craft.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 531, 1)" title="StarCraft">
+                        <img src="/images/2025_jeux/mario_kart_8.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 1194, 1)" title="Mario Kart 8">
+                        <img src="/images/2025_jeux/valorant.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 1565, 1)" title="Valorant">
+                        <img src="/images/2025_jeux/golf_gang.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 2009, 1)" title="Golf Gang">
+                        <img src="/images/2025_jeux/blind_test.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 2666, 1)" title="Blind Test">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/mentions-legales" >Mentions légales</a>
+    </div>
+    <p>TSLAN — Games On The Stage</p>
+</footer>
+
+</body>
+</html>
+</file>
+
+<file path="public/jeux.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/jeux.css">
+    <link rel="canonical" href="https://tslan.fr/" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a class="active" href="/jeux">Jeux</a></li>
+                <li><a href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="hero-panel">
+            <div class="hero-card">
+                <h1>Jeux de la TSLAN 2k26</h1>
+
+                <div class="games-grid">
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/league_of_legends.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/league_of_legends.webp" alt="League of Legends">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/counter_strike_2.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/counter_strike_2.webp" alt="Counter Strike 2">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/minecraft.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/minecraft.webp" alt="Minecraft">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/trackmania.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/trackmania.webp" alt="Trackmania">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/just_dance.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/just_dance.webp" alt="Just Dance">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/left_4_dead_2.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/left_4_dead_2.webp" alt="Left 4 Dead 2">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/gang_beast.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/gang_beasts.webp" alt="Gang Beasts">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/silksong.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/silksong.webp" alt="Silksong">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/the_finals.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/the_finals.webp" alt="The Finals">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <video class="card-video" src="/videos/game_trailer/rocket_league.webm" loop muted playsinline></video>
+                        <img class="card-img" src="/images/2026_jeux/rocket_league.webp" alt="Rocket League">
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card">
+                        <img src="/images/2026_jeux/quiz.webp" alt="Quiz">
+                    </div>
+                    <div class="card">
+                        <img src="/images/2026_jeux/jeu_mystère.webp" alt="Jeu Mystère">
+                    </div>    
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales" >Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+    <script src="/js/jeux.js" defer></script>
+</body>
+</html>
+</file>
+
+<file path="public/mentions-legales.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://tslan.fr/mentions-legales" />
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="content-card">
+            <h1 class="page-title">Mentions légales</h1>
+            <p class="page-intro">Conformément à la Loi pour la Confiance dans l'Économie Numérique, voici les informations de l'éditeur et de l'hébergement du site TSLAN.</p>
+
+            <article>
+                <h2>1. Éditeur et directeur de la publication</h2>
+                <p>Le site <code>tslan.fr</code> est édité par l’association loi 1901 :</p>
+                <ul>
+                    <li><strong>Nom officiel :</strong> Games On The Stage (GOTS)</li>
+                    <li><strong>Siège social :</strong> 10 Rue aux Moines, appartement 10, 10000 Troyes</li>
+                    <li><strong>Numéro RNA :</strong> W103009317</li>
+                    <li><strong>Numéro SIRET :</strong> 106 460 405 00017</li>
+                    <li><strong>Adresse e-mail :</strong> gamesonthestage@gmail.com</li>
+                    <li><strong>Directeur de la publication :</strong> AGRAFEL-DELHAISE Téo, Président de l'association.</li>
+                </ul>
+
+                <h2>2. Hébergement et infrastructure réseau</h2>
+                <p>Le site est sécurisé et propulsé via le réseau global de <strong>Cloudflare, Inc.</strong> (101 Townsend Street, San Francisco, CA 94107, États-Unis).</p>
+                <p>Les fichiers sources et les données du site sont stockés sur une infrastructure privée située en France, administrée pour le compte de l'association. Pour toute réclamation ou demande de retrait de contenu : <code>gamesonthestage@gmail.com</code>.</p>
+
+                <h2>3. Données personnelles et cookies</h2>
+                <p>L'association respecte la vie privée de ses visiteurs :</p>
+                <ul>
+                    <li><strong>Collecte de données :</strong> Le site <code>tslan.fr</code> ne collecte aucune donnée personnelle directe.</li>
+                    <li><strong>Cookies :</strong> Aucun cookie publicitaire, commercial ou de tracking n'est déposé par le site.</li>
+                    <li><strong>Réseau Cloudflare :</strong> Le trafic transite par Cloudflare pour la sécurité du site. Des données techniques de navigation, comme l'adresse IP, sont temporairement traitées par Cloudflare, Inc.</li>
+                </ul>
+
+                <h2>4. Propriété intellectuelle</h2>
+                <p>Games On The Stage (GOTS) détient les droits sur les éléments originaux du site (textes, logos de l'association). Les marques, logos et visuels de jeux vidéo cités ou illustrés sur le site restent la propriété exclusive de leurs éditeurs et ayants droit respectifs.</p>
+                <p>Toute reproduction, modification, publication ou adaptation, totale ou partielle, est interdite sans autorisation écrite préalable de l'association.</p>
+
+                <h2>5. Limitation de responsabilité</h2>
+                <p>L'association met tout en œuvre pour assurer la disponibilité et l'exactitude des informations. Toutefois :</p>
+                <ul>
+                    <li>L'éditeur ne peut être tenu responsable des erreurs, omissions ou indisponibilités techniques du site.</li>
+                    <li>L'utilisateur doit utiliser un matériel à jour, sans virus, et un navigateur moderne. L'éditeur décline toute responsabilité pour tout dommage lié à l'accès au site.</li>
+                    <li>Si des espaces interactifs sont disponibles, l'association se réserve le droit de supprimer tout contenu illégal sans mise en demeure.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/">Accueil</a>
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+</body>
+</html>
+</file>
+
+<file path="public/planning.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Planning</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/planning.css">
+    <link rel="canonical" href="https://tslan.fr/planning" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a class="active" href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="hero-panel">
+            <div class="hero-card">
+                <h1>Planning</h1>
+                <p class="page-intro">
+                    Retrouvez ci-dessous le déroulé prévisionnel des 2 jours de la TSLAN 2026.
+                </p>
+
+                <div class="content-card">
+                    <div class="schedule-grid">
+
+                        <!-- SAMEDI -->
+                        <div class="schedule-day">
+                            <table class="schedule-table">
+                                <thead>
+                                    <tr class="day-header day-saturday">
+                                        <th colspan="2">SAMEDI</th>
+                                    </tr>
+                                    <tr class="col-header">
+                                        <th>Horaire</th>
+                                        <th>Activité</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="row-start"><td>09h00 - 10h00</td><td>Début de journée</td></tr>
+                                    <tr class="row-open"><td>10h00 - 10h30</td><td>Ouverture de l'évènement</td></tr>
+                                    <tr class="row-game"><td>10h30 - 12h00</td><td>League of Legends</td></tr>
+                                    <tr class="row-meal"><td>12h00 - 14h00</td><td>Pause repas</td></tr>
+                                    <tr class="row-game"><td>14h00 - 15h30</td><td>Minecraft UHC Sphère</td></tr>
+                                    <tr class="row-game"><td>15h30 - 16h30</td><td>Jeu mystère</td></tr>
+                                    <tr class="row-game"><td>16h30 - 18h00</td><td>CS2</td></tr>
+                                    <tr class="row-game"><td>18h00 - 19h00</td><td>Gang Beasts</td></tr>
+                                    <tr class="row-meal"><td>19h00 - 21h00</td><td>Pause repas</td></tr>
+                                    <tr class="row-game"><td>21h00 - 23h00</td><td>Just Dance</td></tr>
+                                    <tr class="row-end"><td>23h00 - 00h00</td><td>Fin de journée</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- DIMANCHE -->
+                        <div class="schedule-day">
+                            <table class="schedule-table">
+                                <thead>
+                                    <tr class="day-header day-sunday">
+                                        <th colspan="2">DIMANCHE</th>
+                                    </tr>
+                                    <tr class="col-header">
+                                        <th>Horaire</th>
+                                        <th>Activité</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="row-start"><td>09h00 - 10h00</td><td>Début de journée</td></tr>
+                                    <tr class="row-game"><td>10h00 - 11h00</td><td>Left 4 Dead 2</td></tr>
+                                    <tr class="row-game"><td>11h00 - 12h00</td><td>Trackmania</td></tr>
+                                    <tr class="row-meal"><td>12h00 - 14h00</td><td>Pause repas</td></tr>
+                                    <tr class="row-game"><td>14h00 - 15h00</td><td>Hollow Knight: Silksong</td></tr>
+                                    <tr class="row-game"><td>15h00 - 17h00</td><td>The Finals</td></tr>
+                                    <tr class="row-game"><td>17h00 - 19h00</td><td>Rocket League</td></tr>
+                                    <tr class="row-meal"><td>19h00 - 21h00</td><td>Pause repas</td></tr>
+                                    <tr class="row-game"><td>21h00 - 23h00</td><td>Quiz</td></tr>
+                                    <tr class="row-end"><td>23h00 - 00h00</td><td>Fin de journée</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>      
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+</body>
+</html>
+</file>
+
+<file path="public/index.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="canonical" href="https://tslan.fr/" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a class="active" href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+	<br>
+    <main id="content">
+        <section class="hero-panel">
+            <div class="hero-card">
+                <h1 class="hero-title">Bienvenue à la TSLAN</h1>
+                <p class="page-intro">La TSLAN 2k26 est une LAN multigaming organisée par l'association Games On The Stage qui a lieu les 24 et 25 octobre 2026.</p>
+                
+                <p class="page-intro-info">Venez nous voir sur place :</p>
+
+
+                <div class="hero-buttons">
+                    <a class="ticket-button" href="https://www.helloasso.com/associations/games-on-the-stage/evenements/billetterie-public-tslan2k26" target="_blank" rel="noopener">Acheter ma place</a>
+                </div>
+                <br>
+                <iframe
+                    src="https://player.twitch.tv/?channel=teoad_show&parent=lmkfg68sq4fg69q8-server-test-u69soi5z6g84.teoadshow.fr"
+                    height="480"
+                    width="854"
+                    allowfullscreen>
+                </iframe>
+                <br>
+                
+                <div class="buttons-flex">
+                    <div class="hero-buttons">
+                        <a href="https://gamesonthestage.fr" target="_blank" rel="noopener">Site de l'assos GOTS</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales" >Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+
+    <script src="/js/index.js" defer></script>
+    <script src="/js/ticket-button.js" defer></script>
+</body>
+</html>
+</file>
+
+</files>

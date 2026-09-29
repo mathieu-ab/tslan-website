@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Classement</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/classement.css">
+    <link rel="canonical" href="https://tslan.fr/classement" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/public">Public</a></li>
+                <li><a href="/planning">Planning</a></li>
+                <li><a href="/jeux">Jeux</a></li>
+                <li><a class="active" href="/classement">Classement</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="content">
+        <div class="classement-header">
+            <h1 class="classement-main-title">Classement TSLAN 2k26</h1>
+            <div class="live-status">
+                <span class="live-dot"></span>
+                <span id="last-update-label">Chargement des données…</span>
+                <button id="refresh-btn" class="refresh-btn" type="button" title="Actualiser">↻</button>
+            </div>
+        </div>
+
+        <section class="content-card general-section">
+            <h2>Classement général</h2>
+            <div id="general-error" class="state-message" hidden>Impossible de récupérer le classement général pour le moment.</div>
+            <div class="table-scroll">
+                <table class="leaderboard-table general-table">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Équipe</th>
+                            <th>Joueurs</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="general-table-body">
+                        <tr class="skeleton-row"><td colspan="4">Chargement…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="games-section">
+            <h2>Épreuves</h2>
+            <p class="games-intro">Cliquez sur une épreuve terminée pour afficher son classement.</p>
+            <div id="games-accordion" class="accordion">
+                <p id="games-empty" class="state-message" hidden>Aucun classement d'épreuve n'est disponible pour le moment.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+
+    <script src="/js/classement.js" defer></script>
+</body>
+</html>

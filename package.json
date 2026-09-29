@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/mathieu-ab/TSLAN_web_site#readme",
   "dependencies": {
+    "dotenv": "^18.0.4",
     "express": "^4.21.2",
+    "googleapis": "^182.0.0",
     "node-fetch": "^2.7.0",
     "path": "^0.12.7"
   }

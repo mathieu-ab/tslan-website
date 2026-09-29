@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Overlay classement (gaming)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #8a2467;
+            --red: #d62a2a;
+            --orange: #ff9a1f;
+            --pink: #ff2d95;
+            --grad: linear-gradient(90deg, var(--purple), var(--red) 45%, var(--orange) 78%, var(--pink));
+            --panel: rgba(31, 9, 26, 0.82);
+            --text: #fff4ee;
+            --muted: #f0b8c9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body { height: 100%; width: 100%; overflow: hidden; background: transparent; }
+
+        /*
+         * container-type: size fait du <body> la référence pour les unités
+         * cqh/cqw : 1cqh = 1% de la hauteur RÉELLE de la fenêtre OBS (quelle
+         * que soit sa taille en pixels), 1cqw = 1% de sa largeur. Tout le
+         * dimensionnement (police, logos, espacements) est exprimé ainsi,
+         * donc l'overlay remplit toujours 100% de la place qu'on lui donne.
+         */
+        body {
+            container-type: size;
+            container-name: overlay;
+            color: var(--text);
+            font-family: "Chakra Petch", "Bahnschrift", "Arial Narrow", Impact, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .board {
+            height: 100cqh;
+            width: 100cqw;
+            padding: 1.5cqh 2.2cqw;
+            display: flex;
+            flex-direction: column;
+            gap: 1cqh;
+        }
+
+        /* ---------- En-tête HUD ---------- */
+        header {
+            flex: 0 0 6.2cqh;
+            display: flex;
+            align-items: center;
+            gap: 2cqw;
+            position: relative;
+            padding-bottom: 0.6cqh;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 0.35cqh;
+            background: var(--grad);
+            box-shadow: 0 0 1.5cqh rgba(255, 45, 149, 0.65);
+        }
+
+        .title {
+            font-style: italic;
+            font-weight: 700;
+            font-size: min(3.4cqh, 11cqw);
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 0.4cqh rgba(255, 90, 40, 0.55));
+        }
+
+        .slashes {
+            width: 4.5cqw;
+            height: 2.6cqh;
+            background: repeating-linear-gradient(115deg, var(--orange) 0 0.4cqh, transparent 0.4cqh 1cqh);
+        }
+
+        .live {
+            margin-left: auto;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8cqw;
+            font-size: min(1.7cqh, 3.2cqw);
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .live i {
+            width: 1.3cqh; height: 1.3cqh; border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 1.4cqh var(--red);
+            animation: blink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0.25; } }
+
+        /* ---------- Liste : cascade en escalier, remplit tout l'espace restant ---------- */
+        #list {
+            list-style: none;
+            flex: 1 1 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9cqh;
+        }
+
+        .row {
+            --shift: calc(var(--i, 0) * 0.9cqw);
+            flex: 1 1 0;
+            min-height: 0;
+            margin-left: var(--shift);
+            filter: drop-shadow(0 0.3cqh 1cqh rgba(0, 0, 0, 0.45));
+        }
+
+        .row.first { filter: drop-shadow(0 0 1.6cqh rgba(255, 45, 149, 0.6)); }
+
+        .shape {
+            position: relative;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 8cqh 8.4cqh minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 2.2cqw;
+            padding: 0 4cqw 0 2.6cqw;
+            background:
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px),
+                var(--panel);
+            clip-path: polygon(2.6cqh 0, 100% 0, calc(100% - 2.6cqh) 100%, 0 100%);
+            overflow: hidden;
+        }
+
+        /* Barre d'énergie : largeur proportionnelle aux points du leader */
+        .bar {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: var(--pct, 4%);
+            background: var(--grad);
+            opacity: 0.4;
+            transition: width 1s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .bar::after {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; right: 0;
+            width: 0.4cqw;
+            background: #fff;
+            box-shadow: 0 0 1.3cqh 0.2cqh var(--pink);
+            transform: skewX(-18deg);
+        }
+
+        .shape > *:not(.bar) { position: relative; z-index: 1; }
+
+        .rank {
+            font-style: italic;
+            font-weight: 700;
+            font-size: 4.6cqh;
+            line-height: 1;
+            text-align: center;
+            text-transform: none;
+            color: transparent;
+            -webkit-text-stroke: 0.14cqh var(--pink);
+        }
+
+        .first .rank {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-stroke: 0;
+            filter: drop-shadow(0 0 0.7cqh rgba(255, 154, 31, 0.8));
+        }
+
+        /* Logo en hexagone à bordure dégradée */
+        .logo {
+            width: 8.4cqh;
+            height: 9.2cqh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--grad);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+        }
+
+        .logo img,
+        .logo .fb {
+            width: calc(100% - 0.5cqh);
+            height: calc(100% - 0.5cqh);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            background: #22091a;
+        }
+
+        .logo img { object-fit: contain; padding: 0.6cqh; }
+
+        /* Fallback (logo manquant) : initiales de l'équipe dans l'hexagone */
+        .logo .fb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 2cqh;
+            color: var(--orange);
+        }
+
+        .info { min-width: 0; }
+
+        .team {
+            font-weight: 700;
+            font-size: 3.5cqh;
+            line-height: 1;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: 0 0 1.2cqh rgba(255, 59, 48, 0.5);
+        }
+
+        .members {
+            margin-top: 0.5cqh;
+            font-size: 1.65cqh;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .members b {
+            color: var(--orange);
+            font-weight: 700;
+            margin: 0 0.35em;
+        }
+
+        .points {
+            text-align: right;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 4.3cqh;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 1.4cqh rgba(255, 45, 149, 0.6);
+        }
+
+        .points small {
+            font-size: 1.4cqh;
+            letter-spacing: 0.2em;
+            margin-left: 0.5cqw;
+            color: var(--orange);
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <header>
+            <span class="slashes"></span>
+            <span class="title">Classement</span>
+            <span class="live"><i></i>LIVE</span>
+        </header>
+        <ol id="list"></ol>
+    </div>
+
+    <script src="/js/obs-common.js"></script>
+    <script>
+        const list = document.getElementById("list");
+
+        OBSRanking.start((rows, state) => {
+            const max = Math.max(...rows.map((r) => r.pointsValue), 1);
+
+            OBSRanking.mount(list, rows, {
+                create(row) {
+                    const li = document.createElement("li");
+                    li.className = "row";
+                    li.innerHTML = `
+                        <div class="shape">
+                            <div class="bar"></div>
+                            <span class="rank"></span>
+                            <span class="logo-slot"></span>
+                            <div class="info"><div class="team"></div><div class="members"></div></div>
+                            <div class="points"><span class="pts-value" data-value=""></span><small>PTS</small></div>
+                        </div>`;
+                    li.querySelector(".logo-slot").replaceWith(OBSRanking.makeLogo(row.team));
+                    return li;
+                },
+                update(el, row, i) {
+                    el.style.setProperty("--i", i);
+                    el.classList.toggle("first", i === 0);
+                    el.querySelector(".bar").style.setProperty("--pct", (4 + (row.pointsValue / max) * 82) + "%");
+                    el.querySelector(".rank").textContent = row.rank;
+                    el.querySelector(".team").textContent = row.team;
+                    el.querySelector(".members").innerHTML = row.players
+                        .map((p) => p.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])))
+                        .join("<b>/</b>");
+                    OBSRanking.animateNumber(el.querySelector(".pts-value"), row.pointsValue, row.points);
+                },
+                enter(el, i) {
+                    el.animate(
+                        [{ opacity: 0, transform: "translateX(-3cqw)" }, { opacity: 1, transform: "none" }],
+                        { duration: 600, delay: i * 90, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" }
+                    );
+                },
+            }, state);
+        });
+    </script>
+</body>
+</html>
