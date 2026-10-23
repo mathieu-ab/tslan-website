@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN — Overlay classement (classique)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #7a1f5c;
+            --red: #c8272c;
+            --orange: #e88a12;
+            --grad: linear-gradient(90deg, var(--purple), var(--red) 55%, var(--orange));
+            --panel: rgba(28, 10, 22, 0.82);
+            --panel-2: rgba(46, 14, 22, 0.82);
+            --text: #fbeee4;
+            --muted: #d9b3ae;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body { height: 100%; width: 100%; overflow: hidden; background: transparent; }
+
+        /*
+         * Le viewport OBS (Browser Source) correspond exactement à la taille
+         * en pixels configurée dans OBS : on en fait un "container query
+         * container" pour que tout le contenu (police, logos, espacements)
+         * soit dimensionné en cqh/cqw = % de CETTE boîte précise, quelle que
+         * soit sa taille ou son ratio. Rien n'est en vh/vw ni en valeur fixe.
+         */
+        body {
+            container-type: size;
+            container-name: overlay;
+            color: var(--text);
+            font-family: "Rajdhani", "Segoe UI", system-ui, sans-serif;
+        }
+
+        .board {
+            height: 100cqh;
+            width: 100cqw;
+            padding: 1.6cqh 2cqw;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1cqh;
+        }
+
+        header {
+            flex: 0 0 6.4cqh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.2cqw;
+            background: var(--panel);
+            border-radius: 1.1cqh;
+            border-left: 0.5cqh solid var(--orange);
+        }
+
+        header span.title {
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 700;
+            font-size: min(3.1cqh, 9.5cqw);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        header small {
+            flex-shrink: 0;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: min(1.7cqh, 3.4cqw);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* La liste occupe tout le reste ; chaque ligne = 1/8 exact de cet espace, sans plafond. */
+        #list {
+            list-style: none;
+            flex: 1 1 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1cqh;
+        }
+
+        .row {
+            flex: 1 1 0;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: 8cqh 8cqh minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 2.2cqw;
+            padding: 0 2.6cqw 0 1.8cqw;
+            background: var(--panel-2);
+            border-radius: 1cqh;
+        }
+
+        .row.top-1 { background: linear-gradient(90deg, rgba(255, 215, 106, 0.2), var(--panel-2) 55%); }
+
+        .rank {
+            font-size: 4.2cqh;
+            font-weight: 700;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .top-1 .rank { color: #ffd76a; }
+        .top-2 .rank { color: #e7d3ff; }
+        .top-3 .rank { color: var(--orange); }
+
+        .logo {
+            width: 8cqh;
+            height: 8cqh;
+            border-radius: 0.9cqh;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo img { width: 100%; height: 100%; object-fit: contain; }
+
+        .logo-fallback .fb {
+            font-weight: 700;
+            font-size: 2.4cqh;
+            color: var(--muted);
+        }
+
+        .info { min-width: 0; }
+
+        .team {
+            font-size: 3.2cqh;
+            font-weight: 700;
+            line-height: 1.1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .members {
+            font-size: 1.75cqh;
+            color: var(--muted);
+            margin-top: 0.2cqh;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .points {
+            text-align: right;
+            font-size: 4.1cqh;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+            color: #ffe3b0;
+        }
+
+        .points small {
+            display: block;
+            font-size: 1.3cqh;
+            letter-spacing: 0.14em;
+            color: var(--muted);
+            margin-top: 0.3cqh;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <ol id="list"></ol>
+    </div>
+
+    <script src="/js/obs-common.js"></script>
+    <script>
+        const list = document.getElementById("list");
+
+        OBSRanking.start((rows, state) => {
+            OBSRanking.mount(list, rows, {
+                create(row) {
+                    const li = document.createElement("li");
+                    li.className = "row";
+                    li.innerHTML = `
+                        <span class="rank"></span>
+                        <span class="logo-slot"></span>
+                        <div class="info"><div class="team"></div><div class="members"></div></div>
+                        <div class="points"><span class="pts-value" data-value=""></span><small>PTS</small></div>`;
+                    li.querySelector(".logo-slot").replaceWith(OBSRanking.makeLogo(row.team));
+                    return li;
+                },
+                update(el, row, i) {
+                    el.classList.remove("top-1", "top-2", "top-3");
+                    if (i < 3) el.classList.add(`top-${i + 1}`);
+                    el.querySelector(".rank").textContent = row.rank;
+                    el.querySelector(".team").textContent = row.team;
+                    el.querySelector(".members").textContent = row.players.join("  •  ");
+                    OBSRanking.animateNumber(el.querySelector(".pts-value"), row.pointsValue, row.points);
+                },
+                enter(el) {
+                    el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
+                },
+            }, state);
+        });
+    </script>
+</body>
+</html>

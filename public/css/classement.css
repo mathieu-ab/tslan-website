@@ -1,0 +1,306 @@
+:root {
+    --bg: #060915;
+    --surface: rgba(10, 16, 29, 0.88);
+    --surface-soft: rgba(13, 18, 35, 0.92);
+    --text: #e9eef7;
+    --muted: #9cb2cf;
+    --accent: #39d99f;
+    --accent-soft: rgba(57, 217, 159, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    background: transparent;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+main#content {
+    max-width: 1080px;
+    margin: 2.5rem auto 4rem;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+nav {
+    background: rgba(2, 8, 18, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ---------- Header ---------- */
+
+.classement-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.classement-main-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: #ffffff;
+    line-height: 1.05;
+}
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.5rem 0.5rem 0.5rem 0.9rem;
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(57, 217, 159, 0.6);
+    animation: live-pulse 1.8s ease-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes live-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(57, 217, 159, 0.55); }
+    70% { box-shadow: 0 0 0 8px rgba(57, 217, 159, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(57, 217, 159, 0); }
+}
+
+.refresh-btn {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background 0.25s ease, transform 0.5s ease;
+}
+
+.refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.refresh-btn.spinning {
+    transform: rotate(360deg);
+}
+
+/* ---------- Sections communes ---------- */
+
+.content-card h2,
+.games-section h2 {
+    color: #ffffff;
+    margin-bottom: 0.9rem;
+}
+
+.games-section {
+    margin-top: 2rem;
+}
+
+.games-intro {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+.state-message {
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* ---------- Tableaux ---------- */
+
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 0.75rem;
+    padding-bottom: 0.25rem;
+}
+
+.table-scroll::-webkit-scrollbar {
+    height: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+}
+
+.general-table {
+    min-width: 640px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 1rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.leaderboard-table thead th {
+    color: #ffffff;
+}
+
+.leaderboard-table td.team-cell {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.team-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+}
+
+.team-fullname {
+    white-space: normal;
+}
+
+.leaderboard-table tr.rank-1 {
+    color: #f9d464;
+    background: rgba(255, 215, 0, 0.08);
+}
+
+.leaderboard-table tr.rank-2 {
+    color: #d8e2f0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.leaderboard-table tr.rank-3 {
+    color: #e3b98a;
+    background: rgba(205, 127, 50, 0.08);
+}
+
+.skeleton-row td {
+    color: var(--muted);
+    text-align: center;
+    padding: 1.4rem;
+}
+
+/* ---------- Accordéon épreuves ---------- */
+
+.accordion {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.accordion-item {
+    background: rgba(10, 16, 29, 0.589);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 0.9rem 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.accordion-header:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.game-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.game-name {
+    flex: 1;
+    text-align: left;
+}
+
+.arrow {
+    font-size: 0.95rem;
+    transition: transform 0.35s ease;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 900px;
+}
+
+.accordion-content-inner {
+    padding: 0.5rem 1.3rem 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 860px) {
+    main#content {
+        margin: 1.8rem auto 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .classement-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .accordion-header {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+}
