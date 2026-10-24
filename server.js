@@ -81,70 +81,70 @@ app.get("/mentions-legales", (req, res) => {
 
 const sheetsConfig = {
     "Général": {
-        data: "Général!B26:I41"
+        data: "Général!B26:I39"
     },
 
     "Joueur Equipe": {
-        data: "'Data'!B4:D19"
+        data: "'Data'!B4:D17"
     },
 
     "LeagueofLegends": {
-        data: "LeagueofLegends!I4:J19",
-        validation: "LeagueofLegends!L8:N9"
+        data: "LeagueofLegends!O4:P17",
+        validation: "LeagueofLegends!R8:T9"
     },
 
     "Minecraft UHC Sphères": {
-        data: "'Minecraft UHC Sphères'!D4:E19",
+        data: "'Minecraft UHC Sphères'!D4:E17",
         validation: "'Minecraft UHC Sphères'!G8:I9"
     },
 
     "CounterStrike2": {
-        data: "CounterStrike2!J4:K19",
-        validation: "CounterStrike2!M8:O9"
+        data: "CounterStrike2!N4:O17",
+        validation: "CounterStrike2!Q8:S9"
     },
 
     "Gang Beasts": {
-        data: "'Gang Beasts'!J4:K19",
+        data: "'Gang Beasts'!J4:K17",
         validation: "'Gang Beasts'!M8:O9"
     },
 
     "Just Dance": {
-        data: "'Just Dance'!H4:I19",
-        validation: "'Just Dance'!K8:M9"
+        data: "'Just Dance'!E4:F17",
+        validation: "'Just Dance'!H8:J9"
     },
 
     "Left4Dead 2": {
-        data: "'Left4Dead 2'!D4:E19",
+        data: "'Left4Dead 2'!D4:E17",
         validation: "'Left4Dead 2'!G8:I9"
     },
 
     "Trackmania": {
-        data: "Trackmania!F4:G19",
+        data: "Trackmania!F4:G17",
         validation: "Trackmania!I8:K9"
     },
 
     "Hollow Knight Silksong": {
-        data: "'Hollow Knight Silksong'!B28:C43",
-        validation: "'Hollow Knight Silksong'!E32:G33"
+        data: "'Hollow Knight Silksong'!B26:C39",
+        validation: "'Hollow Knight Silksong'!E30:G31"
     },
 
     "The Finals": {
-        data: "'The Finals'!N4:O19",
+        data: "'The Finals'!N4:O17",
         validation: "'The Finals'!Q8:S9"
     },
 
     "Rocket League": {
-        data: "'Rocket League'!O4:P19",
+        data: "'Rocket League'!O4:P17",
         validation: "'Rocket League'!R8:T9"
     },
 
     "Jeu mystère": {
-        data: "'Jeu mystère'!F4:G19",
+        data: "'Jeu mystère'!F4:G17",
         validation: "'Jeu mystère'!I8:K9"
     },
 
     "Quiz": {
-        data: "Quiz!AX4:AY19",
+        data: "Quiz!AX4:AY17",
         validation: "Quiz!BA8:BC9"
     }
 };
