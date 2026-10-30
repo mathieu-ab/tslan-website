@@ -87,3 +87,15 @@
     justify-content: center;
     gap: 30px;
 }
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main#content {
+    flex: 1;
+}
+

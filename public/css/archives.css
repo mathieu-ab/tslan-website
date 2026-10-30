@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --bg: #060915;
     --surface: rgba(10, 16, 29, 0.88);
     --surface-soft: rgba(13, 18, 35, 0.92);
@@ -82,7 +82,7 @@ nav {
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 2600px;
+    max-height: 6000px;
 }
 
 .accordion-item.active .arrow {
@@ -257,5 +257,234 @@ nav {
     .video-selector .selector-btn {
         flex: 1;
         text-align: center;
+    }
+}
+
+/* ---------- TSLAN 2k26 ---------- */
+
+.rank-2 {
+    color: #d6deeb;
+    background: rgba(214, 222, 235, 0.06);
+}
+
+.rank-3 {
+    color: #e3a56f;
+    background: rgba(205, 127, 50, 0.08);
+}
+
+.video-placeholder {
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.video-placeholder strong {
+    font-size: 1.15rem;
+}
+
+.video-placeholder p {
+    margin-top: 0.3rem;
+}
+
+.games-grid-archive.no-link {
+    cursor: default;
+}
+
+.games-grid-archive.no-link img:hover {
+    transform: none;
+}
+
+/* classement jeu par jeu : discret, replié par défaut */
+
+.game-ranking {
+    margin-top: 1.1rem;
+}
+
+.game-ranking summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+.game-ranking summary::-webkit-details-marker {
+    display: none;
+}
+
+.game-ranking summary::before {
+    content: "▸";
+    transition: transform 0.25s ease;
+}
+
+.game-ranking summary:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.game-ranking[open] summary {
+    color: var(--text);
+}
+
+.game-ranking[open] summary::before {
+    transform: rotate(90deg);
+    color: var(--accent);
+}
+
+.matrix-note {
+    margin: 0.8rem 0 0;
+    font-size: 0.8rem;
+}
+
+.game-matrix {
+    width: 100%;
+    min-width: 780px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.82rem;
+}
+
+.game-matrix th,
+.game-matrix td {
+    padding: 0.5rem 0.35rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.game-matrix thead th {
+    vertical-align: bottom;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.game-matrix thead img {
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 0.3rem;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-matrix thead span {
+    display: block;
+    max-width: 76px;
+    margin: 0 auto;
+    font-size: 0.62rem;
+    line-height: 1.2;
+}
+
+.game-matrix tbody th {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    min-width: 150px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    background: #0a101d;
+}
+
+.game-matrix .corner {
+    position: sticky;
+    left: 0;
+    text-align: left;
+    background: #0a101d;
+}
+
+.rk {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    font-weight: 600;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.rk.r1 {
+    color: #f9d464;
+    background: rgba(249, 212, 100, 0.16);
+}
+
+.rk.r2 {
+    color: #d6deeb;
+    background: rgba(214, 222, 235, 0.12);
+}
+
+.rk.r3 {
+    color: #e3a56f;
+    background: rgba(205, 127, 50, 0.16);
+}
+
+/* logos des équipes */
+
+.team-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.team-logo {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.game-matrix .team-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}
+
+.game-matrix tbody th {
+    min-width: 190px;
+}
+
+/* classement jeu par jeu : confort sur mobile */
+
+.game-ranking .table-scroll {
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+}
+
+.game-matrix thead th:not(.corner) {
+    min-width: 64px;
+}
+
+@media (max-width: 640px) {
+    .game-matrix {
+        min-width: 0;
+    }
+
+    /* colonne des équipes réduite au logo, pour laisser la place aux jeux */
+    .game-matrix tbody th,
+    .game-matrix .corner {
+        min-width: 0;
+        width: 48px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 0;
+    }
+
+    .game-matrix .corner {
+        visibility: hidden;
+    }
+
+    .game-matrix .team-logo {
+        width: 28px;
+        height: 28px;
     }
 }

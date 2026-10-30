@@ -1,0 +1,2185 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  css/
+    archives.css
+    index.css
+    main.css
+    partners.css
+  images/
+    2025_event_image/
+      image0.webp
+      image1.webp
+      image10.webp
+      image11.webp
+      image12.webp
+      image13.webp
+      image14.webp
+      image2.webp
+      image3.webp
+      image4.webp
+      image5.webp
+      image6.webp
+      image7.webp
+      image8.webp
+      image9.webp
+    2025_jeux/
+      bedwars.webp
+      blind_test.webp
+      brawlhalla.webp
+      codenames.webp
+      golf_gang.webp
+      league_of_legends.webp
+      mario_kart_8.webp
+      pubg.webp
+      quiz.webp
+      skribble.webp
+      star_craft.webp
+      valorant.webp
+    2025_logo_team/
+      Bober_Bro.png
+      Bro.png
+      Graulapayng.png
+      Tableaux_Gnraux_Basse_Tension.png
+      Team_Stade.png
+    2026_jeux/
+      counter_strike_2.webp
+      gang_beasts.webp
+      jeu_mystère.webp
+      just_dance.webp
+      league_of_legends.webp
+      left_4_dead_2.webp
+      minecraft.webp
+      quiz.webp
+      rocket_league.webp
+      silksong.webp
+      the_finals.webp
+      trackmania.webp
+    2026_logo_team/
+      2B_old.webp
+      GS.webp
+      LDGp.webp
+      LDGr.webp
+      TGO.webp
+      TS.webp
+      UE.webp
+      VHS.webp
+    icons/
+      discord.png
+      twitch.png
+      x.png
+      youtube.png
+    partenaire/
+      bc/
+        art-en-scene - Copie.webp
+        art-en-scene.webp
+        bss.webp
+        cm68.webp
+        levia-com.webp
+        offpoint.webp
+        tsp.webp
+      art-en-scene.webp
+      bss.webp
+      cm68.webp
+      levia-com.webp
+      offpoint.webp
+      tsp.webp
+    art-en-seine.png
+    favicon.ico
+  js/
+    archives.js
+    index.js
+    partners.js
+  videos/
+    background.webm
+  archives.html
+  index.html
+  mentions-legales.html
+.gitignore
+LICENSE
+package.json
+README.md
+server.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/css/partners.css">
+/* Bandeau défilant des partenaires */
+.partners-banner {
+    --tile-w: 170px;
+    --tile-h: 84px;
+    --gap: 1.5rem;
+
+    width: 100%;
+    margin: 2.5rem 0 0;
+    padding: 1.25rem 0 0.5rem;
+    background: rgba(12, 16, 30, 0.7);
+    border-top: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+    border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+    overflow: hidden;
+}
+
+.partners-title {
+    margin: 0 0 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted, #aab6cf);
+}
+
+.partners-marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    /* Marge haute : place pour le zoom. Marge basse : place pour le nom qui descend. */
+    padding: 1.1rem 0 3.4rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.partners-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+    padding-right: var(--gap); /* = gap, pour une boucle sans à-coup */
+    /* La durée est recalculée par partners.js pour une vitesse constante en px/s */
+    animation: partners-scroll var(--partners-duration, 120s) linear infinite;
+}
+
+/* Tuile sombre, dans le style du site */
+.partner-tile {
+    position: relative;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--tile-w);
+    height: var(--tile-h);
+    padding: 0.6rem 0.9rem;
+    background: var(--surface-strong, rgba(20, 27, 44, 0.96));
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+    border-radius: 14px;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease;
+}
+
+/* Variante claire, uniquement si un logo n'est lisible que sur fond clair */
+.partner-tile.is-light {
+    background: #eef1f6;
+}
+
+.partner-tile img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Nom : part de derrière le logo et glisse vers le bas (la position suit la tuile) */
+.partner-name {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--text, #eff3f8);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease;
+}
+
+.partner-tile.is-active,
+a.partner-tile:focus-visible {
+    z-index: 2;
+    transform: scale(1.08);
+    border-color: var(--accent, #39d99f);
+}
+
+.partner-tile.is-active .partner-name,
+a.partner-tile:focus-visible .partner-name {
+    opacity: 1;
+    transform: translate(-50%, calc(-50% + var(--tile-h) / 2 + 1.05rem));
+}
+
+/* Survol souris uniquement (sur tactile, c'est la classe .is-active posée par le JS) */
+@media (hover: hover) {
+    .partner-tile:hover {
+        z-index: 2;
+        transform: scale(1.08);
+        border-color: var(--accent, #39d99f);
+    }
+    .partner-tile:hover .partner-name {
+        opacity: 1;
+        transform: translate(-50%, calc(-50% + var(--tile-h) / 2 + 1.05rem));
+    }
+}
+
+a.partner-tile:focus-visible {
+    outline: 2px solid var(--accent, #39d99f);
+    outline-offset: 3px;
+}
+
+@keyframes partners-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+}
+
+/* Mobile */
+@media (max-width: 660px) {
+    .partners-banner { --tile-w: 128px; --tile-h: 64px; --gap: 1rem; margin-top: 2rem; }
+    .partner-tile { padding: 0.45rem 0.7rem; border-radius: 12px; }
+    .partner-name { font-size: 0.8rem; }
+    .partners-marquee { padding-bottom: 3rem; }
+}
+
+@media (max-width: 380px) {
+    .partners-banner { --tile-w: 112px; --tile-h: 56px; }
+}
+
+/* Mouvement réduit : plus de défilement, les logos passent à la ligne */
+@media (prefers-reduced-motion: reduce) {
+    .partners-marquee {
+        -webkit-mask-image: none;
+                mask-image: none;
+    }
+    .partners-group { animation: none; flex-wrap: wrap; justify-content: center; row-gap: 3rem; }
+    .partners-group[aria-hidden="true"] { display: none; }
+    .partners-group .partner-tile:nth-child(n + 7) { display: none; } /* un seul passage de la liste */
+}
+</file>
+
+<file path="public/js/partners.js">
+/**
+ * Bandeau défilant des partenaires — injecté automatiquement au-dessus du <footer>.
+ * Pour ajouter / retirer un partenaire : modifier uniquement la liste ci-dessous.
+ * Les logos sont dans /public/images/partenaire/ (format .webp).
+ *
+ * Options par partenaire :
+ *   url   : rend le logo cliquable (nouvel onglet)
+ *   light : true => tuile claire (pour un logo qui n'est lisible que sur fond clair)
+ */
+(function () {
+    const BASE = "/images/partenaire/";
+
+    const PARTNERS = [
+        { name: "Levia Com",     logo: "levia-com.webp" },
+        { name: "Art en Scène",  logo: "art-en-scene.webp" },
+        { name: "BSS",           logo: "bss.webp" },
+        { name: "Crédit Mutuel", logo: "cm68.webp", light: true }, // JPG à fond blanc : retirer "light" une fois un logo transparent fourni
+        { name: "Offpoint",      logo: "offpoint.webp" },
+        { name: "TSP",           logo: "tsp.webp" }
+    ];
+
+    // Nombre de répétitions de la liste dans un groupe (pour couvrir les très grands écrans)
+    const REPEAT = 4;
+    // Vitesse de défilement en pixels par seconde (identique sur mobile et desktop)
+    const SPEED = 30;
+    // Vitesse relative quand la souris est sur le bandeau (1 = normal)
+    const HOVER_RATE = 0.25;
+    // Sur écran tactile : durée pendant laquelle le logo touché reste mis en avant (ms)
+    const TOUCH_HOLD = 2500;
+
+    function buildItem(p, decorative) {
+        const img = document.createElement("img");
+        img.src = BASE + p.logo;
+        img.alt = decorative ? "" : p.name;
+        img.loading = "lazy";
+        img.decoding = "async";
+
+        const tile = document.createElement(p.url ? "a" : "div");
+        tile.className = "partner-tile" + (p.light ? " is-light" : "");
+        if (p.url) {
+            tile.href = p.url;
+            tile.target = "_blank";
+            tile.rel = "noopener sponsored";
+            tile.setAttribute("aria-label", p.name);
+            if (decorative) tile.tabIndex = -1;
+        }
+
+        const label = document.createElement("span");
+        label.className = "partner-name";
+        label.textContent = p.name;
+        label.setAttribute("aria-hidden", "true");
+
+        tile.append(img, label);
+        return tile;
+    }
+
+    function buildGroup(hidden) {
+        const group = document.createElement("div");
+        group.className = "partners-group";
+        if (hidden) group.setAttribute("aria-hidden", "true");
+        for (let i = 0; i < REPEAT; i++) {
+            PARTNERS.forEach(p => group.appendChild(buildItem(p, hidden || i > 0)));
+        }
+        return group;
+    }
+
+    // Vitesse constante en px/s : la durée dépend de la largeur réelle du groupe
+    function setupSpeed(marquee) {
+        let pending = false;
+        function apply() {
+            pending = false;
+            const group = marquee.querySelector(".partners-group");
+            const w = group ? group.offsetWidth : 0;
+            if (w > 0) marquee.style.setProperty("--partners-duration", (w / SPEED).toFixed(1) + "s");
+        }
+        function schedule() {
+            if (!pending) { pending = true; requestAnimationFrame(apply); }
+        }
+        window.addEventListener("resize", schedule);
+        window.addEventListener("load", schedule);
+        return schedule;
+    }
+
+    // Ralentissement progressif (une animation CSS ne peut pas être adoucie en CSS pur :
+    // on ajuste playbackRate image par image) + gestion du tactile.
+    function setupInteraction(marquee) {
+        let rate = 1, target = 1, raf = null, holdTimer = null, activeTile = null;
+
+        function tick() {
+            rate += (target - rate) * 0.08;
+            if (Math.abs(target - rate) < 0.005) rate = target;
+            marquee.querySelectorAll(".partners-group").forEach(g =>
+                g.getAnimations().forEach(a => { a.playbackRate = rate; })
+            );
+            raf = rate !== target ? requestAnimationFrame(tick) : null;
+        }
+        function go(t) {
+            target = t;
+            if (!raf) raf = requestAnimationFrame(tick);
+        }
+        function clearActive() {
+            clearTimeout(holdTimer);
+            if (activeTile) { activeTile.classList.remove("is-active"); activeTile = null; go(1); }
+        }
+
+        // Souris
+        marquee.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") go(HOVER_RATE); });
+        marquee.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") go(1); });
+
+        // Clavier
+        marquee.addEventListener("focusin", () => go(HOVER_RATE));
+        marquee.addEventListener("focusout", () => go(1));
+
+        // Tactile : un appui met le logo en avant (zoom + nom) et fige le défilement un instant
+        marquee.addEventListener("pointerdown", e => {
+            if (e.pointerType === "mouse") return;
+            const tile = e.target.closest(".partner-tile");
+            clearActive();
+            if (!tile) return;
+            activeTile = tile;
+            tile.classList.add("is-active");
+            go(0);
+            holdTimer = setTimeout(clearActive, TOUCH_HOLD);
+        });
+        document.addEventListener("pointerdown", e => {
+            if (e.pointerType !== "mouse" && !marquee.contains(e.target)) clearActive();
+        });
+    }
+
+    function init() {
+        if (!PARTNERS.length || document.querySelector(".partners-banner")) return;
+
+        const section = document.createElement("section");
+        section.className = "partners-banner";
+        section.setAttribute("aria-label", "Nos partenaires");
+
+        const title = document.createElement("h2");
+        title.className = "partners-title";
+        title.textContent = "Nos partenaires";
+
+        const marquee = document.createElement("div");
+        marquee.className = "partners-marquee";
+        marquee.appendChild(buildGroup(false));
+        marquee.appendChild(buildGroup(true));
+
+        section.append(title, marquee);
+
+        const footer = document.querySelector("footer");
+        if (footer) footer.parentNode.insertBefore(section, footer);
+        else document.body.appendChild(section);
+
+        const scheduleSpeed = setupSpeed(marquee);
+        setupInteraction(marquee);
+
+        let css = document.querySelector('link[href="/css/partners.css"]');
+        if (!css) {
+            css = document.createElement("link");
+            css.rel = "stylesheet";
+            css.href = "/css/partners.css";
+            css.addEventListener("load", scheduleSpeed);
+            document.head.appendChild(css);
+        } else {
+            scheduleSpeed();
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
+})();
+</file>
+
+<file path="public/css/archives.css">
+:root {
+    --bg: #060915;
+    --surface: rgba(10, 16, 29, 0.88);
+    --surface-soft: rgba(13, 18, 35, 0.92);
+    --text: #e9eef7;
+    --muted: #9cb2cf;
+    --accent: #39d99f;
+    --accent-soft: rgba(57, 217, 159, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    background: transparent;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+main#content {
+    max-width: 1080px;
+    margin: 2.5rem auto 4rem;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+nav {
+    background: rgba(2, 8, 18, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.archive-main-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    padding-bottom: 0.9rem;
+}
+
+.accordion {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.accordion-item {
+    background: rgba(10, 16, 29, 0.589);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.accordion-header:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.arrow {
+    font-size: 0.95rem;
+    transition: transform 0.35s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 6000px;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+.content-inner {
+    padding: 1.5rem 1.5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.content-inner p,
+.content-inner li {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.content-inner ul {
+    margin: 1rem 0 1.3rem 1.4rem;
+    list-style: disc inside;
+}
+
+.content-inner strong {
+    color: #ffffff;
+}
+
+.video-container-archive {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.2);
+}
+
+.video-container-archive iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.15rem;
+    justify-content: center;
+}
+
+.selector-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    padding: 0.9rem 1.05rem;
+    border-radius: 8px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.selector-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.selector-btn.active {
+    background: var(--accent);
+    color: #041112;
+    border-color: var(--accent);
+}
+
+.selector-btn.active strong {
+    color: #041112;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.75rem 0;
+}
+
+.info-item {
+    background: rgba(12, 16, 30, 0.73);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.highlight-green {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.leaderboard-section h3 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.leaderboard-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+}
+
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 0.75rem;
+    padding-bottom: 0.25rem;
+}
+
+.table-scroll::-webkit-scrollbar {
+    height: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 1rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.leaderboard-table thead th {
+    color: #ffffff;
+}
+
+.rank-1 {
+    color: #f9d464;
+    background: rgba(255, 215, 0, 0.08);
+}
+
+.games-grid-archive {
+    display: grid;
+    cursor: pointer;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.games-grid-archive img {
+    width: 100%;
+    border-radius: 16px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.games-grid-archive img:hover {
+    transform: scale(1.07);
+}
+
+@media (max-width: 860px) {
+    main#content {
+        margin: 1.8rem auto 3rem;
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .video-selector {
+        justify-content: stretch;
+    }
+
+    .video-selector .selector-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* ---------- TSLAN 2k26 ---------- */
+
+.rank-2 {
+    color: #d6deeb;
+    background: rgba(214, 222, 235, 0.06);
+}
+
+.rank-3 {
+    color: #e3a56f;
+    background: rgba(205, 127, 50, 0.08);
+}
+
+.video-placeholder {
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.video-placeholder strong {
+    font-size: 1.15rem;
+}
+
+.video-placeholder p {
+    margin-top: 0.3rem;
+}
+
+.games-grid-archive.no-link {
+    cursor: default;
+}
+
+.games-grid-archive.no-link img:hover {
+    transform: none;
+}
+
+/* classement jeu par jeu : discret, replié par défaut */
+
+.game-ranking {
+    margin-top: 1.1rem;
+}
+
+.game-ranking summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+.game-ranking summary::-webkit-details-marker {
+    display: none;
+}
+
+.game-ranking summary::before {
+    content: "▸";
+    transition: transform 0.25s ease;
+}
+
+.game-ranking summary:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.game-ranking[open] summary {
+    color: var(--text);
+}
+
+.game-ranking[open] summary::before {
+    transform: rotate(90deg);
+    color: var(--accent);
+}
+
+.matrix-note {
+    margin: 0.8rem 0 0;
+    font-size: 0.8rem;
+}
+
+.game-matrix {
+    width: 100%;
+    min-width: 780px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.82rem;
+}
+
+.game-matrix th,
+.game-matrix td {
+    padding: 0.5rem 0.35rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.game-matrix thead th {
+    vertical-align: bottom;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.game-matrix thead img {
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 0.3rem;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-matrix thead span {
+    display: block;
+    max-width: 76px;
+    margin: 0 auto;
+    font-size: 0.62rem;
+    line-height: 1.2;
+}
+
+.game-matrix tbody th {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    min-width: 150px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    background: #0a101d;
+}
+
+.game-matrix .corner {
+    position: sticky;
+    left: 0;
+    text-align: left;
+    background: #0a101d;
+}
+
+.rk {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    font-weight: 600;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.rk.r1 {
+    color: #f9d464;
+    background: rgba(249, 212, 100, 0.16);
+}
+
+.rk.r2 {
+    color: #d6deeb;
+    background: rgba(214, 222, 235, 0.12);
+}
+
+.rk.r3 {
+    color: #e3a56f;
+    background: rgba(205, 127, 50, 0.16);
+}
+
+/* logos des équipes */
+
+.team-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.team-logo {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.game-matrix .team-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}
+
+.game-matrix tbody th {
+    min-width: 190px;
+}
+
+/* classement jeu par jeu : confort sur mobile */
+
+.game-ranking .table-scroll {
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+}
+
+.game-matrix thead th:not(.corner) {
+    min-width: 64px;
+}
+
+@media (max-width: 640px) {
+    .game-matrix {
+        min-width: 0;
+    }
+
+    /* colonne des équipes réduite au logo, pour laisser la place aux jeux */
+    .game-matrix tbody th,
+    .game-matrix .corner {
+        min-width: 0;
+        width: 48px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 0;
+    }
+
+    .game-matrix .corner {
+        visibility: hidden;
+    }
+
+    .game-matrix .team-logo {
+        width: 28px;
+        height: 28px;
+    }
+}
+</file>
+
+<file path="public/css/index.css">
+.countdown-card {
+    margin: 1.5rem auto 0;
+    padding: 1.1rem 1.2rem 1.2rem;
+    width: min(100%, 560px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(18, 24, 38, 0.96), rgba(11, 17, 27, 0.9));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 40px rgba(0,0,0,0.22);
+}
+
+.countdown-label {
+    margin: 0 0 0.9rem;
+    text-align: center;
+    color: #d8eff9;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.countdown-box {
+    min-width: 88px;
+    padding: 0.8rem 0.55rem 0.55rem;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(16, 23, 35, 0.96), rgba(9, 13, 20, 0.94));
+    border: 1px solid rgba(123, 214, 182, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 22px rgba(5, 11, 18, 0.28);
+    text-align: center;
+}
+
+.countdown-box span {
+    display: block;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    line-height: 1;
+    font-weight: 800;
+    color: #9af7d2;
+    text-shadow: 0 0 18px rgba(57, 217, 159, 0.35);
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-box small {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-size: 0.62rem;
+}
+
+.countdown-separator {
+    color: rgba(154, 247, 210, 0.9);
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1;
+    margin: 0 -0.1rem;
+    text-shadow: 0 0 12px rgba(57, 217, 159, 0.3);
+}
+
+.video-container {
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border-radius: 22px;
+    margin-top: 1.5rem;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.video-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.buttons-flex {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+</file>
+
+<file path="public/js/archives.js">
+function toggleAccordion(header) {
+    const item = header.parentElement;
+
+    item.classList.toggle('active');
+}
+
+
+function changeVideo(url, btn) {
+    document.getElementById('video-player-2k25').src = url;
+
+    const buttons = btn.parentElement.querySelectorAll('.selector-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
+
+function jumpToVideo(baseUrl, seconds, buttonIndex) {
+    const player = document.getElementById('video-player-2k25');
+    const videoSection = document.querySelector('.video-section');
+
+    const newUrl = `${baseUrl}?start=${seconds}&autoplay=1`;
+    player.src = newUrl;
+
+    videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const buttons = document.querySelectorAll('.selector-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    if(buttons[buttonIndex]) {
+        buttons[buttonIndex].classList.add('active');
+    }
+}
+</file>
+
+<file path="LICENSE">
+Copyright (c) 2026 Association Games On The Stage (GOTS) & Mathieu AVERSENC-BOUISSIERE.
+Tous droits réservés.
+
+Le code source est rendu public à des fins de consultation et de démonstration uniquement.
+Toute reproduction, modification ou redistribution sans autorisation écrite préalable 
+de l'association GOTS est strictement interdite.
+</file>
+
+<file path="package.json">
+{
+  "name": "tslan_web_site",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathieu-ab/TSLAN_web_site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathieu-ab/TSLAN_web_site/issues"
+  },
+  "homepage": "https://github.com/mathieu-ab/TSLAN_web_site#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "node-fetch": "^2.7.0",
+    "path": "^0.12.7"
+  }
+}
+</file>
+
+<file path="public/js/index.js">
+
+</file>
+
+<file path=".gitignore">
+.idea
+.vscode
+.env
+node_modules
+photoshop
+credentials
+</file>
+
+<file path="README.md">
+# 🌐 TSLAN.fr
+
+[![Site Officiel](https://img.shields.io/badge/Site\_Officiel-tslan.fr-blue?style=for-the-badge)](https://tslan.fr)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+> Plateforme web officielle de la **TSLAN**, événement gaming organisé par l'association **GOTS** (Games On The Stage).
+
+---
+
+## Fonctionnalités
+
+-  **Gestion des événements :** Actualités de l'événement, redirections d'inscriptions, planning, informations sur les tournois et archives.
+- **Performance & SEO :** Interface fluide et optimisée pour le référencement naturel.
+- **Responsive Design :** Ergonomie adaptée à tous les types d'écrans (Desktop, Tablette, Mobile).
+
+---
+
+## Stack Technique
+
+- **Frontend :** HTML5, CSS3, JavaScript
+- **Backend :** Node.js
+- **Hébergement :** Auto-hébergé sur serveur personnel, sécurisé et accessible via le réseau Cloudflare
+
+
+
+## Note sur la propriété intellectuelle :
+
+- Le code source est sous licence MIT.
+- La marque TSLAN et l'identité visuelle de l'association restent la propriété exclusive de GOTS.
+- Les illustrations et logos de jeux vidéo restent la propriété exclusive de leurs éditeurs respectifs et sont utilisés à des fins d'illustration événementielle.
+
+## Auteur
+
+* **Mathieu AVERSENC-BOUISSIERE**
+
+  * GitHub : [@mathieu-ab](https://github.com/mathieu-ab)
+  * LinkedIn : [Mathieu Aversenc-Bouissiere](https://www.linkedin.com/in/mathieu-aversenc-bouissiere-53724b265/)
+</file>
+
+<file path="server.js">
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const app = express();
+const PORT = 5500;
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get("/archives", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "archives.html"));
+});
+
+app.get("/jeux", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "jeux.html"));
+});
+
+app.get("/participation", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "participation.html"));
+});
+
+app.get("/public", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "public.html"));
+});
+
+app.get("/planning", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "planning.html"));
+});
+
+app.get("/mentions-legales", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "mentions-legales.html"));
+});
+
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+});
+</file>
+
+<file path="public/css/main.css">
+:root {
+    --bg: #060915;
+    --surface: rgba(12, 16, 30, 0.88);
+    --surface-strong: rgba(20, 27, 44, 0.96);
+    --text: #eff3f8;
+    --muted: #aab6cf;
+    --accent: #39d99f;
+    --accent-soft: rgba(57, 217, 159, 0.14);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top center, rgba(57, 217, 159, 0.08), transparent 24%),
+        linear-gradient(180deg, #081222 0%, #04050b 70%, #030306 100%);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.7;
+}
+
+img,
+iframe,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+a:hover {
+    color: #80eac9;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(2, 8, 18, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+}
+
+.nav-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-brand img {
+    width: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text);
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+    background: rgba(77, 226, 171, 0.472);
+}
+
+main {
+    max-width: 1080px;
+    width: min(100% - 2rem, 1080px);
+    margin: 2.5rem auto 3rem;
+    padding: 0;
+}
+
+.page-title {
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #ffffff;
+}
+
+.page-intro {
+    max-width: 760px;
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+}
+
+.content-card {
+    background: rgba(10, 16, 29, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.content-card + .content-card {
+    margin-top: 1.5rem;
+}
+
+.content-card h1,
+.content-card h2,
+.content-card h3,
+.content-card h4 {
+    color: #ffffff;
+    margin-top: 1.8rem;
+    margin-bottom: 0.9rem;
+}
+
+.content-card p,
+.content-card li {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.content-card ul {
+    margin: 1rem 0 1.2rem 1.35rem;
+    list-style: disc inside;
+}
+
+.content-card code {
+    display: inline-block;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.086);
+    color: #ebfff7;
+    padding: 0.2rem 0.45rem;
+    border-radius: 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.hero-panel {
+    display: grid;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+.hero-panel > * {
+    min-width: 0;
+}
+
+.hero-card {
+    background: rgba(12, 16, 30, 0.589);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.32);
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.hero-card h1 {
+    text-align: center;
+    font-size: clamp(2.4rem, 7vw, 4.3rem);
+    margin-bottom: 1rem;
+    line-height: 1.05;
+}
+
+.hero-card p {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 155px;
+    padding: 0.95rem 1.2rem;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #071010;
+    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(57, 217, 159, 0.22);
+}
+
+.hero-buttons a.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+}
+
+.hero-buttons a:hover {
+    transform: translateY(-1px);
+}
+
+.hero-buttons a.ticket-button {
+    --ticket-rotate-x: 0deg;
+    --ticket-rotate-y: 0deg;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: min(100%, 560px);
+    min-height: 76px;
+    padding: 1.2rem 2rem;
+    border: 2px solid #b8ffe5;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #52edb2, #21c98e);
+    color: #04130f;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 16px 34px rgba(57, 217, 159, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    animation: ticket-button-glow 3s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s ease;
+}
+
+.hero-buttons a.ticket-button::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: -1;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+    content: "";
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+}
+
+.hero-buttons a.ticket-button:hover,
+.hero-buttons a.ticket-button:focus-visible {
+    transform: perspective(550px) translateY(-4px) rotateX(var(--ticket-rotate-x)) rotateY(var(--ticket-rotate-y)) scale(1.03);
+    filter: brightness(1.08);
+    box-shadow: 0 20px 42px rgba(57, 217, 159, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.hero-buttons a.ticket-button:hover::before,
+.hero-buttons a.ticket-button:focus-visible::before {
+    left: 135%;
+}
+
+.hero-buttons a.ticket-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+@keyframes ticket-button-glow {
+    0%,
+    100% {
+        box-shadow: 0 16px 34px rgba(57, 217, 159, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 18px 40px rgba(57, 217, 159, 0.48), 0 0 18px rgba(57, 217, 159, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-buttons a.ticket-button {
+        animation: none;
+        transition: none;
+    }
+
+    .hero-buttons a.ticket-button::before {
+        transition: none;
+    }
+}
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px);
+}
+
+.video-background .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.40);
+}
+
+footer {
+    max-width: 1080px;
+    width: min(100% - 2rem, 1080px);
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--accent);
+}
+
+@media (max-width: 820px) {
+    .nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    main {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 660px) {
+    main {
+        margin: 1.5rem auto 2rem;
+    }
+
+    .content-card {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .hero-panel {
+        gap: 1rem;
+    }
+
+    .hero-card {
+        padding: 1.4rem 1rem;
+        max-width: 100%;
+    }
+
+    .hero-card h1 {
+        font-size: clamp(2.1rem, 8vw, 3.4rem);
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    footer {
+        padding: 1rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        margin: 1rem auto 1.5rem;
+    }
+
+    .nav-inner {
+        padding: 0.85rem 1rem;
+    }
+
+    .footer-links {
+        gap: 0.5rem;
+    }
+
+    .hero-card {
+        padding: 1.1rem 0.95rem;
+    }
+
+    .hero-card h1 {
+        font-size: clamp(1.9rem, 10vw, 3rem);
+    }
+
+    .page-intro,
+    .hero-card p {
+        font-size: 0.98rem;
+    }
+}
+
+.copy-address {
+    cursor: pointer;
+    color: var(--accent);
+    border-bottom: 1px dashed var(--accent);
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.copy-address:hover,
+.copy-address:focus-visible {
+    color: #80eac9;
+}
+
+.cursor-tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--surface-strong);
+    color: var(--text);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    border: 1px solid var(--border);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -130%);
+    transition: opacity 0.15s ease;
+    z-index: 60;
+}
+
+.cursor-tooltip.show {
+    opacity: 1;
+}
+
+.copy-address:hover::after,
+.copy-address:focus-visible::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface-strong);
+    color: var(--accent);
+    font-weight: 700;
+    padding: 0.75rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 12px 24px rgba(57, 217, 159, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 999;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.venue-thumb {
+    display: inline-block;
+    width: 222px;
+    height: 222px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+}
+
+.venue-thumb:hover {
+    transform: scale(1.04);
+}
+</file>
+
+<file path="public/archives.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/archives.css">
+    <script src="/js/archives.js" defer></script>
+    <link rel="canonical" href="https://tslan.fr/archives" />
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a class="active" href="/archives">Archives</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="video-background">
+    <video autoplay muted loop>
+        <source src="/videos/background.webm" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+</div>
+<main id="content">
+    <h1 style="text-align: center; font-size: 4.3rem;" class="archive-main-title">Archives TSLAN</h1>
+
+    <div class="accordion">
+        <div class="accordion-item active">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span>TSLAN 2k26</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="video-placeholder">
+                        <strong>Best-Of</strong>
+                        <p>Les best-of de l'édition 2k26 arrivent bientôt.</p>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>Format</h4>
+                            <p>Équipes de 2 joueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Cashprize</h4>
+                            <p class="highlight-green">400€ pour les vainqueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Dates</h4>
+                            <p>24 & 25 octobre 2026</p>
+                        </div>
+                    </div>
+                    <div class="leaderboard-section">
+                        <h3>Classement Final</h3>
+                        <div class="table-scroll">
+                            <table class="leaderboard-table">
+                                <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Équipe</th>
+                                    <th>Joueurs</th>
+                                    <th>Points</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <tr class="rank-1">
+                                <td>1er</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/LDGp.webp" alt="" loading="lazy"><strong>Loading Purple</strong></span></td>
+                                <td>Xicub, Flow</td>
+                                <td>65</td>
+                            </tr>
+                            <tr class="rank-2">
+                                <td>2e</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/TS.webp" alt="" loading="lazy">Team Stade</span></td>
+                                <td>Varimatrax, Infornia</td>
+                                <td>62</td>
+                            </tr>
+                            <tr class="rank-3">
+                                <td>3e</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/LDGr.webp" alt="" loading="lazy">Loading Red</span></td>
+                                <td>Tintin81, Nath_k_222</td>
+                                <td>49</td>
+                            </tr>
+                            <tr>
+                                <td>4e</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/TGO.webp" alt="" loading="lazy">Les Chouettes Glorieuses</span></td>
+                                <td>Niamyope, Dibou</td>
+                                <td>48</td>
+                            </tr>
+                            <tr>
+                                <td>5e</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/VHS.webp" alt="" loading="lazy">Vacances Hors Surtension</span></td>
+                                <td>Mathkiler, Azaaran</td>
+                                <td>43</td>
+                            </tr>
+                            <tr>
+                                <td>6e</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/GS.webp" alt="" loading="lazy">Golden Snitch</span></td>
+                                <td>JulDragonne, Totomas15</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>7e</td>
+                                <td><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/UE.webp" alt="" loading="lazy">Unknown Entity</span></td>
+                                <td>Corsamme, Kyorfi</td>
+                                <td>29</td>
+                            </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <details class="game-ranking">
+                            <summary>Classement jeu par jeu</summary>
+                            <p class="matrix-note">Place obtenue par chaque équipe sur chaque jeu.</p>
+                            <div class="table-scroll">
+                                <table class="game-matrix">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="corner">Équipe</th>
+                                        <th scope="col" title="League of Legends"><img src="/images/2026_jeux/league_of_legends.webp" alt="League of Legends" loading="lazy"><span>League of Legends</span></th>
+                                        <th scope="col" title="Minecraft UHC"><img src="/images/2026_jeux/minecraft.webp" alt="Minecraft UHC" loading="lazy"><span>Minecraft UHC</span></th>
+                                        <th scope="col" title="Counter-Strike 2"><img src="/images/2026_jeux/counter_strike_2.webp" alt="Counter-Strike 2" loading="lazy"><span>Counter-Strike 2</span></th>
+                                        <th scope="col" title="Just Dance"><img src="/images/2026_jeux/just_dance.webp" alt="Just Dance" loading="lazy"><span>Just Dance</span></th>
+                                        <th scope="col" title="Left 4 Dead 2"><img src="/images/2026_jeux/left_4_dead_2.webp" alt="Left 4 Dead 2" loading="lazy"><span>Left 4 Dead 2</span></th>
+                                        <th scope="col" title="Trackmania"><img src="/images/2026_jeux/trackmania.webp" alt="Trackmania" loading="lazy"><span>Trackmania</span></th>
+                                        <th scope="col" title="Hollow Knight: Silksong"><img src="/images/2026_jeux/silksong.webp" alt="Hollow Knight: Silksong" loading="lazy"><span>Hollow Knight: Silksong</span></th>
+                                        <th scope="col" title="The Finals"><img src="/images/2026_jeux/the_finals.webp" alt="The Finals" loading="lazy"><span>The Finals</span></th>
+                                        <th scope="col" title="Rocket League"><img src="/images/2026_jeux/rocket_league.webp" alt="Rocket League" loading="lazy"><span>Rocket League</span></th>
+                                        <th scope="col" title="Jeu mystère"><img src="/images/2026_jeux/jeu_myst%C3%A8re.webp" alt="Jeu mystère" loading="lazy"><span>Jeu mystère</span></th>
+                                        <th scope="col" title="Quiz"><img src="/images/2026_jeux/quiz.webp" alt="Quiz" loading="lazy"><span>Quiz</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/LDGp.webp" alt="" loading="lazy">Loading Purple</span></th><td><span class="rk">7</span></td><td><span class="rk r2">2</span></td><td><span class="rk r1">1</span></td><td><span class="rk r1">1</span></td><td><span class="rk r2">2</span></td><td><span class="rk r1">1</span></td><td><span class="rk r3">3</span></td><td><span class="rk r1">1</span></td><td><span class="rk r2">2</span></td><td><span class="rk r2">2</span></td><td><span class="rk">4</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/TS.webp" alt="" loading="lazy">Team Stade</span></th><td><span class="rk r1">1</span></td><td><span class="rk r3">3</span></td><td><span class="rk">4</span></td><td><span class="rk">4</span></td><td><span class="rk">4</span></td><td><span class="rk r3">3</span></td><td><span class="rk r1">1</span></td><td><span class="rk">7</span></td><td><span class="rk r1">1</span></td><td><span class="rk">5</span></td><td><span class="rk r1">1</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/LDGr.webp" alt="" loading="lazy">Loading Red</span></th><td><span class="rk">6</span></td><td><span class="rk">5</span></td><td><span class="rk">6</span></td><td><span class="rk">6</span></td><td><span class="rk r3">3</span></td><td><span class="rk r2">2</span></td><td><span class="rk r2">2</span></td><td><span class="rk r3">3</span></td><td><span class="rk r3">3</span></td><td><span class="rk">7</span></td><td><span class="rk r2">2</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/TGO.webp" alt="" loading="lazy">Les Chouettes Glorieuses</span></th><td><span class="rk r2">2</span></td><td><span class="rk">6</span></td><td><span class="rk r3">3</span></td><td><span class="rk r3">3</span></td><td><span class="rk r1">1</span></td><td><span class="rk">4</span></td><td><span class="rk">5</span></td><td><span class="rk">6</span></td><td><span class="rk">5</span></td><td><span class="rk r1">1</span></td><td><span class="rk">5</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/VHS.webp" alt="" loading="lazy">Vacances Hors Surtension</span></th><td><span class="rk">4</span></td><td><span class="rk">4</span></td><td><span class="rk r2">2</span></td><td><span class="rk r2">2</span></td><td><span class="rk">5</span></td><td><span class="rk">6</span></td><td><span class="rk">7</span></td><td><span class="rk r2">2</span></td><td><span class="rk">7</span></td><td><span class="rk r3">3</span></td><td><span class="rk r3">3</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/GS.webp" alt="" loading="lazy">Golden Snitch</span></th><td><span class="rk">5</span></td><td><span class="rk r1">1</span></td><td><span class="rk">5</span></td><td><span class="rk">5</span></td><td><span class="rk">7</span></td><td><span class="rk">5</span></td><td><span class="rk">4</span></td><td><span class="rk">5</span></td><td><span class="rk">4</span></td><td><span class="rk">6</span></td><td><span class="rk">6</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><span class="team-cell"><img class="team-logo" src="/images/2026_logo_team/UE.webp" alt="" loading="lazy">Unknown Entity</span></th><td><span class="rk r3">3</span></td><td><span class="rk">7</span></td><td><span class="rk">7</span></td><td><span class="rk">7</span></td><td><span class="rk">6</span></td><td><span class="rk">7</span></td><td><span class="rk">6</span></td><td><span class="rk">4</span></td><td><span class="rk">6</span></td><td><span class="rk">4</span></td><td><span class="rk">7</span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </details>
+                    </div>
+                    <h3>Jeux de l'édition</h3>
+                    <div class="games-grid-archive no-link">
+                        <img src="/images/2026_jeux/league_of_legends.webp" title="League of Legends" alt="League of Legends" loading="lazy">
+                        <img src="/images/2026_jeux/minecraft.webp" title="Minecraft UHC" alt="Minecraft UHC" loading="lazy">
+                        <img src="/images/2026_jeux/counter_strike_2.webp" title="Counter-Strike 2" alt="Counter-Strike 2" loading="lazy">
+                        <img src="/images/2026_jeux/just_dance.webp" title="Just Dance" alt="Just Dance" loading="lazy">
+                        <img src="/images/2026_jeux/left_4_dead_2.webp" title="Left 4 Dead 2" alt="Left 4 Dead 2" loading="lazy">
+                        <img src="/images/2026_jeux/trackmania.webp" title="Trackmania" alt="Trackmania" loading="lazy">
+                        <img src="/images/2026_jeux/silksong.webp" title="Hollow Knight: Silksong" alt="Hollow Knight: Silksong" loading="lazy">
+                        <img src="/images/2026_jeux/the_finals.webp" title="The Finals" alt="The Finals" loading="lazy">
+                        <img src="/images/2026_jeux/rocket_league.webp" title="Rocket League" alt="Rocket League" loading="lazy">
+                        <img src="/images/2026_jeux/jeu_myst%C3%A8re.webp" title="Jeu mystère" alt="Jeu mystère" loading="lazy">
+                        <img src="/images/2026_jeux/quiz.webp" title="Quiz" alt="Quiz" loading="lazy">
+                        <img src="/images/2026_jeux/gang_beasts.webp" title="Gang Beasts" alt="Gang Beasts" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span>TSLAN 2k25</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="video-section">
+                        <div class="video-container-archive">
+                            <iframe id="video-player-2k25" loading="lazy" src="https://www.youtube.com/embed/LrWvUYRvPP8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-selector">
+                            <button class="selector-btn active" onclick="changeVideo('https://www.youtube.com/embed/LrWvUYRvPP8', this)"><strong>Best-Of</strong> J1</button>
+                            <button class="selector-btn" onclick="changeVideo('https://www.youtube.com/embed/UsVRzdwrqQU', this)"><strong>Best-Of</strong> J2</button>
+                            <button class="selector-btn" onclick="changeVideo('https://www.youtube.com/embed/6ZBwJIiCgh8', this)"><strong>Court Métrage</strong></button>
+                        </div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>Format</h4>
+                            <p>Équipes de 2 joueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Cashprize</h4>
+                            <p class="highlight-green">300€ pour les vainqueurs</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Dates</h4>
+                            <p>12 & 13 juillet 2025</p>
+                        </div>
+                    </div>
+                    <div class="leaderboard-section">
+                        <h3>Classement Final</h3>
+                        <div class="table-scroll">
+                            <table class="leaderboard-table">
+                                <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Équipe</th>
+                                    <th>Joueurs</th>
+                                    <th>Points</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <tr class="rank-1">
+                                <td>1er</td>
+                                <td><strong>Team Stade</strong></td>
+                                <td>Infornia, Varimatrax</td>
+                                <td>66</td>
+                            </tr>
+                            <tr>
+                                <td>2e</td>
+                                <td>Tableaux Généraux Basse Tension</td>
+                                <td>Azaaran, Mathkiler</td>
+                                <td>58</td>
+                            </tr>
+                            <tr>
+                                <td>3e</td>
+                                <td>Bober Bro</td>
+                                <td>Garscene, Reywrath</td>
+                                <td>49</td>
+                            </tr>
+                            <tr>
+                                <td>4e</td>
+                                <td>Graulapayng</td>
+                                <td>Azeohd, Gontran_Bonheur</td>
+                                <td>47</td>
+                            </tr>
+                            <tr>
+                                <td>5e</td>
+                                <td>Bro</td>
+                                <td>Bream, Orenfi</td>
+                                <td>41</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <h3>Jeux de l'édition</h3>
+                    <div class="games-grid-archive">
+                        <img src="/images/2025_jeux/brawlhalla.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 200, 0)" title="Brawlhalla">
+                        <img src="/images/2025_jeux/league_of_legends.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 974, 0)" title="League of Legends">
+                        <img src="/images/2025_jeux/bedwars.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 1592, 0)" title="Bedwars">
+                        <img src="/images/2025_jeux/codenames.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2097, 0)" title="Codenames">
+                        <img src="/images/2025_jeux/pubg.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2182, 0)" title="PUBG">
+                        <img src="/images/2025_jeux/quiz.webp" onclick="jumpToVideo('https://www.youtube.com/embed/LrWvUYRvPP8', 2901, 0)" title="Quiz">
+                        <img src="/images/2025_jeux/skribble.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 192, 1)" title="Skribble">
+                        <img src="/images/2025_jeux/star_craft.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 531, 1)" title="StarCraft">
+                        <img src="/images/2025_jeux/mario_kart_8.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 1194, 1)" title="Mario Kart 8">
+                        <img src="/images/2025_jeux/valorant.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 1565, 1)" title="Valorant">
+                        <img src="/images/2025_jeux/golf_gang.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 2009, 1)" title="Golf Gang">
+                        <img src="/images/2025_jeux/blind_test.webp" onclick="jumpToVideo('https://www.youtube.com/embed/UsVRzdwrqQU', 2666, 1)" title="Blind Test">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/mentions-legales" >Mentions légales</a>
+    </div>
+    <p>TSLAN — Games On The Stage</p>
+</footer>
+
+   <script src="/js/partners.js" defer></script>
+</body>
+</html>
+</file>
+
+<file path="public/mentions-legales.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://tslan.fr/mentions-legales" />
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="content-card">
+            <h1 class="page-title">Mentions légales</h1>
+            <p class="page-intro">Conformément à la Loi pour la Confiance dans l'Économie Numérique, voici les informations de l'éditeur et de l'hébergement du site TSLAN.</p>
+
+            <article>
+                <h2>1. Éditeur et directeur de la publication</h2>
+                <p>Le site <code>tslan.fr</code> est édité par l’association loi 1901 :</p>
+                <ul>
+                    <li><strong>Nom officiel :</strong> Games On The Stage (GOTS)</li>
+                    <li><strong>Siège social :</strong> 10 Rue aux Moines, appartement 10, 10000 Troyes</li>
+                    <li><strong>Numéro RNA :</strong> W103009317</li>
+                    <li><strong>Numéro SIRET :</strong> 106 460 405 00017</li>
+                    <li><strong>Adresse e-mail :</strong> gamesonthestage@gmail.com</li>
+                    <li><strong>Directeur de la publication :</strong> AGRAFEL-DELHAISE Téo, Président de l'association.</li>
+                </ul>
+
+                <h2>2. Hébergement et infrastructure réseau</h2>
+                <p>Le site est sécurisé et propulsé via le réseau global de <strong>Cloudflare, Inc.</strong> (101 Townsend Street, San Francisco, CA 94107, États-Unis).</p>
+                <p>Les fichiers sources et les données du site sont stockés sur une infrastructure privée située en France, administrée pour le compte de l'association. Pour toute réclamation ou demande de retrait de contenu : <code>gamesonthestage@gmail.com</code>.</p>
+
+                <h2>3. Données personnelles et cookies</h2>
+                <p>L'association respecte la vie privée de ses visiteurs :</p>
+                <ul>
+                    <li><strong>Collecte de données :</strong> Le site <code>tslan.fr</code> ne collecte aucune donnée personnelle directe.</li>
+                    <li><strong>Cookies :</strong> Aucun cookie publicitaire, commercial ou de tracking n'est déposé par le site.</li>
+                    <li><strong>Réseau Cloudflare :</strong> Le trafic transite par Cloudflare pour la sécurité du site. Des données techniques de navigation, comme l'adresse IP, sont temporairement traitées par Cloudflare, Inc.</li>
+                </ul>
+
+                <h2>4. Propriété intellectuelle</h2>
+                <p>Games On The Stage (GOTS) détient les droits sur les éléments originaux du site (textes, logos de l'association). Les marques, logos et visuels de jeux vidéo cités ou illustrés sur le site restent la propriété exclusive de leurs éditeurs et ayants droit respectifs.</p>
+                <p>Toute reproduction, modification, publication ou adaptation, totale ou partielle, est interdite sans autorisation écrite préalable de l'association.</p>
+
+                <h2>5. Limitation de responsabilité</h2>
+                <p>L'association met tout en œuvre pour assurer la disponibilité et l'exactitude des informations. Toutefois :</p>
+                <ul>
+                    <li>L'éditeur ne peut être tenu responsable des erreurs, omissions ou indisponibilités techniques du site.</li>
+                    <li>L'utilisateur doit utiliser un matériel à jour, sans virus, et un navigateur moderne. L'éditeur décline toute responsabilité pour tout dommage lié à l'accès au site.</li>
+                    <li>Si des espaces interactifs sont disponibles, l'association se réserve le droit de supprimer tout contenu illégal sans mise en demeure.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/">Accueil</a>
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+</body>
+</html>
+</file>
+
+<file path="public/index.html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSLAN</title>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="canonical" href="https://tslan.fr/" />
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/videos/background.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a class="active" href="/">Accueil</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </div>
+    </nav>
+	<br>
+    <main id="content">
+        <section class="hero-panel">
+            <div class="hero-card">
+                <h1 class="hero-title">Bienvenue à la TSLAN</h1>
+                <p class="page-intro">La TSLAN est une LAN multigaming organisée par l'association Games On The Stage.</p>
+                <div>
+                    <p>La <strong>TSLAN 2k26</strong>, c'est fini. Merci à tous pour cette édition incroyable.</p>
+                </div>
+
+                <br>
+                
+                <div class="buttons-flex">
+                    <div class="hero-buttons">
+                        <a href="https://gamesonthestage.fr" target="_blank" rel="noopener">Site de l'assos GOTS</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="/mentions-legales" >Mentions légales</a>
+        </div>
+        <p>TSLAN — Games On The Stage</p>
+    </footer>
+
+    <script src="/js/index.js" defer></script>
+    <script src="/js/ticket-button.js" defer></script>
+    <script src="/js/partners.js" defer></script>
+</body>
+</html>
+</file>
+
+</files>
